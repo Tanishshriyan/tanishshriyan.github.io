@@ -231,3 +231,121 @@ footer{
   text-align: center;
   font-size: 0.95em;
 }
+/* ===== Cyber opening + motion ===== */
+html:not(.is-ready) body { overflow: hidden; }
+
+/* Boot overlay */
+.boot{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background:
+    radial-gradient(800px 500px at 30% 20%, rgba(0,255,170,.10), transparent 60%),
+    radial-gradient(700px 450px at 70% 40%, rgba(120,160,255,.10), transparent 55%),
+    #05070b;
+  display: grid;
+  place-items: center;
+}
+
+.boot-inner{
+  width: min(720px, calc(100% - 48px));
+  padding: 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.35);
+  box-shadow: 0 30px 80px rgba(0,0,0,.65);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.boot-title{
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(255,255,255,.75);
+  margin-bottom: 14px;
+}
+.boot-lines{ color: rgba(255,255,255,.68); line-height: 1.7; }
+.boot-lines .ok{ color: rgba(0,255,170,.85); }
+
+.boot.hide{ animation: bootOut .6s ease forwards; }
+@keyframes bootOut{ to{ opacity: 0; transform: translateY(-6px); } }
+
+/* Scanlines */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,.035) 0px,
+    rgba(255,255,255,.035) 1px,
+    rgba(0,0,0,0) 3px,
+    rgba(0,0,0,0) 6px
+  );
+  opacity: .14;
+}
+
+/* Glitch headline */
+.glitch{ position: relative; display: inline-block; }
+.glitch::before,
+.glitch::after{
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+  opacity: .85;
+}
+.glitch::before{
+  transform: translate(2px, 0);
+  text-shadow: -2px 0 rgba(0,255,170,.55);
+  clip-path: inset(0 0 55% 0);
+  animation: glitchTop 2.2s infinite linear;
+}
+.glitch::after{
+  transform: translate(-2px, 0);
+  text-shadow: 2px 0 rgba(120,160,255,.55);
+  clip-path: inset(45% 0 0 0);
+  animation: glitchBottom 1.9s infinite linear;
+}
+@keyframes glitchTop{
+  0%, 92%, 100% { transform: translate(0,0); }
+  93% { transform: translate(2px,-1px); }
+  94% { transform: translate(-3px,1px); }
+  95% { transform: translate(1px,0); }
+}
+@keyframes glitchBottom{
+  0%, 88%, 100% { transform: translate(0,0); }
+  89% { transform: translate(-2px,1px); }
+  90% { transform: translate(3px,0); }
+  91% { transform: translate(-1px,-1px); }
+}
+
+/* Page reveal on ready */
+.is-ready .hero,
+.is-ready section,
+.is-ready .card{
+  animation: riseIn .7s ease both;
+}
+.is-ready #about{ animation-delay: .10s; }
+.is-ready #skills{ animation-delay: .18s; }
+.is-ready #projects{ animation-delay: .26s; }
+.is-ready #contact{ animation-delay: .34s; }
+
+@keyframes riseIn{
+  from{ opacity: 0; transform: translateY(14px); filter: blur(6px); }
+  to{ opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .boot.hide, .glitch::before, .glitch::after,
+  .is-ready .hero, .is-ready section, .is-ready .card{
+    animation: none !important;
+  }
+  html:not(.is-ready) body{ overflow: auto; }
+}
+
