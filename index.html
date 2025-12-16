@@ -1,75 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Tanish Shriyan | Cybersecurity Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Tanish Shriyan | Cybersecurity Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<link rel="stylesheet" href="style.css">
 
 <body>
 
 <header>
-  <h1>Tanish Shriyan</h1>
-  <p>Cybersecurity-Focused Computer Science Engineering Student</p>
-  <nav>
-    <a href="#about">About</a> |
-    <a href="#skills">Skills</a> |
-    <a href="#projects">Projects</a> |
-    <a href="#contact">Contact</a>
-  </nav>
-  <hr>
+  <div class="container header-inner">
+    <div class="brand">
+      <h1>Tanish Shriyan</h1>
+      <small>Cybersecurity • CSE Diploma</small>
+    </div>
+
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<main>
+<main class="container">
 
-<section id="about">
-<h2>About Me</h2>
-<p>
-I am a Diploma Computer Science Engineering student with a focused interest in cybersecurity,
-malware analysis, and ransomware defense. I work primarily with Linux systems and build
-behavior-based security solutions instead of signature-based detection.
-</p>
-</section>
+  <!-- Hero -->
+  <section class="hero" aria-label="Intro">
+    <div class="kicker">Cybersecurity portfolio</div>
+    <h2>Building behavior-based defenses against modern ransomware.</h2>
+    <p>
+      Diploma Computer Science Engineering student focused on malware analysis, Linux security,
+      and early-stage ransomware detection using behavioral signals.
+    </p>
 
-<section id="skills">
-<h2>Technical Skills</h2>
-<ul>
-<li>Operating Systems: Kali Linux, Linux Mint, Windows 10/11</li>
-<li>Cybersecurity: Ransomware Detection, Malware Analysis</li>
-<li>Programming: Python, Bash Scripting</li>
-<li>Tools: Git, GitHub, Linux CLI</li>
-</ul>
-</section>
+    <div class="actions">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="#contact">Contact</a>
+      <a class="btn" href="projects.html">Case study</a>
+    </div>
+  </section>
 
-<section id="projects">
-<h2>Projects</h2>
-<h3>Real-Time Ransomware Early Detection System</h3>
-<p>
-A behavior-based ransomware detection system focused on early threat identification.
-</p>
-<p>
-<a href="projects.html">View detailed case study →</a>
-</p>
-</section>
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I am a Diploma Computer Science Engineering student with a focused interest in cybersecurity,
+      malware analysis, and ransomware defense. I work primarily with Linux systems and build
+      behavior-based security solutions instead of signature-based detection.
+    </p>
 
+    <div class="grid">
+      <div class="card">
+        <h3>Focus areas</h3>
+        <p>Ransomware early detection, malware triage, Linux hardening, security automation.</p>
+      </div>
+      <div class="card">
+        <h3>Working style</h3>
+        <p>Practical projects, measurable outcomes, clean documentation, and reproducible setups.</p>
+      </div>
+    </div>
+  </section>
 
-<section id="contact">
-<h2>Contact</h2>
-<p>
-GitHub: <a href="https://github.com/">Your GitHub Profile</a><br>
-Website: GitHub Pages
-</p>
-</section>
+  <section id="skills">
+    <h2>Skills</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Operating systems</h3>
+        <ul>
+          <li>Kali Linux</li>
+          <li>Linux Mint</li>
+          <li>Windows 10/11</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Security</h3>
+        <ul>
+          <li>Ransomware detection</li>
+          <li>Malware analysis (fundamentals)</li>
+          <li>Behavior-based monitoring</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Programming</h3>
+        <ul>
+          <li>Python</li>
+          <li>Bash scripting</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Tools</h3>
+        <ul>
+          <li>Git / GitHub</li>
+          <li>Linux CLI</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Real-Time Ransomware Early Detection System</h3>
+        <p>
+          A behavior-based ransomware detection system focused on early threat identification.
+        </p>
+        <p>
+          <a class="btn" href="projects.html">View detailed case study →</a>
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Next project slot</h3>
+        <p>Add your next build here (e.g., log analyzer, sandbox runner, YARA lab, etc.).</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Links</h3>
+        <p>
+          GitHub: <a href="https://github.com/">Your GitHub Profile</a><br />
+          Website: GitHub Pages
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Quick note</h3>
+        <p>
+          For collaborations/internships, share role + timeline + tech stack and a link to the task scope.
+        </p>
+      </div>
+    </div>
+  </section>
 
 </main>
 
 <footer>
-<hr>
-<p>© Tanish Shriyan | Cybersecurity Portfolio</p>
+  <div class="container footer-inner">
+    © Tanish Shriyan | Cybersecurity Portfolio
+  </div>
 </footer>
 
 </body>
 </html>
-
-
