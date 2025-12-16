@@ -8,7 +8,17 @@
 </head>
 
 <body>
-
+  <div id="boot" class="boot" aria-hidden="true">
+    <div class="boot-inner">
+      <div class="boot-title">Initializing Secure Session</div>
+      <div class="boot-lines">
+        <div>Loading modules…</div>
+        <div>Mounting filesystem…</div>
+        <div>Starting telemetry…</div>
+        <div class="ok">OK</div>
+      </div>
+    </div>
+  </div>
 <header>
   <div class="container header-inner">
     <div class="brand">
@@ -29,8 +39,9 @@
 
   <!-- Hero -->
   <section class="hero" aria-label="Intro">
-    <div class="kicker">Cybersecurity portfolio</div>
-    <h2>Building behavior-based defenses against modern ransomware.</h2>
+  <h2 class="glitch" data-text="Building behavior-based defenses against modern ransomware.">
+    Building behavior-based defenses against modern ransomware.
+  </h2>
     <p>
       Diploma Computer Science Engineering student focused on malware analysis, Linux security,
       and early-stage ransomware detection using behavioral signals.
@@ -152,6 +163,15 @@
     © Tanish Shriyan | Cybersecurity Portfolio
   </div>
 </footer>
-
+  <script>
+    // Remove loader quickly after page is ready
+    window.addEventListener("load", () => {
+      document.documentElement.classList.add("is-ready");
+      const boot = document.getElementById("boot");
+      if (boot) boot.classList.add("hide");
+      setTimeout(() => boot && boot.remove(), 650);
+    });
+  </script>
 </body>
 </html>
+
