@@ -8,170 +8,172 @@
 </head>
 
 <body>
-  <div id="boot" class="boot" aria-hidden="true">
-    <div class="boot-inner">
-      <div class="boot-title">Initializing Secure Session</div>
-      <div class="boot-lines">
-        <div>Loading modules…</div>
-        <div>Mounting filesystem…</div>
-        <div>Starting telemetry…</div>
-        <div class="ok">OK</div>
-      </div>
+  <!-- Premium opening: Shield → Name reveal -->
+  <div id="opening" class="opening" aria-hidden="true">
+    <div class="opening-content">
+      <svg class="shield-icon" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M60 10 L100 30 L100 60 C100 85 80 100 60 110 C40 100 20 85 20 60 L20 30 Z" 
+              stroke="currentColor" 
+              stroke-width="2" 
+              fill="none"
+              class="shield-path"/>
+        <circle cx="60" cy="55" r="15" stroke="currentColor" stroke-width="2" fill="none" class="shield-lock"/>
+        <rect x="55" y="60" width="10" height="15" stroke="currentColor" stroke-width="2" fill="none" class="shield-lock"/>
+      </svg>
+      <div class="opening-text">Initializing secure session...</div>
     </div>
   </div>
-<header>
-  <div class="container header-inner">
-    <div class="brand">
-      <h1>Tanish Shriyan</h1>
-      <small>Cybersecurity • CSE Diploma</small>
+
+  <!-- Minimal header (Apple style) -->
+  <header>
+    <div class="container header-wrap">
+      <a href="#" class="logo">Tanish Shriyan</a>
+      <nav aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <nav aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main class="container">
-
-  <!-- Hero -->
-  <section class="hero" aria-label="Intro">
-  <h2 class="glitch" data-text="Building behavior-based defenses against modern ransomware.">
-    Building behavior-based defenses against modern ransomware.
-  </h2>
-    <p>
-      Diploma Computer Science Engineering student focused on malware analysis, Linux security,
-      and early-stage ransomware detection using behavioral signals.
-    </p>
-
-    <div class="actions">
-      <a class="btn primary" href="#projects">View projects</a>
-      <a class="btn" href="#contact">Contact</a>
-      <a class="btn" href="projects.html">Case study</a>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      I am a Diploma Computer Science Engineering student with a focused interest in cybersecurity,
-      malware analysis, and ransomware defense. I work primarily with Linux systems and build
-      behavior-based security solutions instead of signature-based detection.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Focus areas</h3>
-        <p>Ransomware early detection, malware triage, Linux hardening, security automation.</p>
-      </div>
-      <div class="card">
-        <h3>Working style</h3>
-        <p>Practical projects, measurable outcomes, clean documentation, and reproducible setups.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Operating systems</h3>
-        <ul>
-          <li>Kali Linux</li>
-          <li>Linux Mint</li>
-          <li>Windows 10/11</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Security</h3>
-        <ul>
-          <li>Ransomware detection</li>
-          <li>Malware analysis (fundamentals)</li>
-          <li>Behavior-based monitoring</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Programming</h3>
-        <ul>
-          <li>Python</li>
-          <li>Bash scripting</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Tools</h3>
-        <ul>
-          <li>Git / GitHub</li>
-          <li>Linux CLI</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <div class="grid">
-      <article class="card">
-        <h3>Real-Time Ransomware Early Detection System</h3>
-        <p>
-          A behavior-based ransomware detection system focused on early threat identification.
+  <main>
+    <!-- Hero: Apple-style huge typography -->
+    <section class="hero-apple">
+      <div class="container">
+        <h1 class="hero-headline">
+          Building behavior‑based<br/>defenses against<br/>modern ransomware.
+        </h1>
+        <p class="hero-subhead">
+          Diploma Computer Science Engineering student focused on malware analysis,
+          Linux security, and early‑stage threat detection.
         </p>
-        <p>
-          <a class="btn" href="projects.html">View detailed case study →</a>
+        <div class="hero-cta">
+          <a href="#work" class="cta-primary">View projects</a>
+          <a href="#contact" class="cta-secondary">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Grid: Wolff Olins card style -->
+    <section id="work" class="work-grid">
+      <div class="container">
+        <h2 class="section-label">Selected Work</h2>
+
+        <div class="project-card large">
+          <div class="project-content">
+            <h3>Real-Time Ransomware Early Detection System</h3>
+            <p class="project-meta">Python • Behavioral Analysis • ML</p>
+            <p class="project-desc">
+              A behavior-based ransomware detection system focused on early threat identification
+              using Isolation Forest and filesystem monitoring.
+            </p>
+            <a href="projects.html" class="project-link">View case study →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Network Security Monitor</h3>
+            <p class="project-meta">Linux • Python • Wireshark</p>
+            <p class="project-desc">
+              Real-time network traffic analysis and intrusion detection prototype.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Secure File Transfer Tool</h3>
+            <p class="project-meta">Encryption • AES-256 • Python</p>
+            <p class="project-desc">
+              Command-line tool for encrypted file sharing with integrity verification.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About: Clean typography -->
+    <section id="about" class="about-section">
+      <div class="container-narrow">
+        <h2 class="section-heading">About</h2>
+        <p class="about-intro">
+          I work at the intersection of cybersecurity and systems programming, building tools
+          that detect threats early and operate efficiently on Linux platforms.
         </p>
-      </article>
 
-      <article class="card">
-        <h3>Next project slot</h3>
-        <p>Add your next build here (e.g., log analyzer, sandbox runner, YARA lab, etc.).</p>
-      </article>
-    </div>
-  </section>
+        <div class="about-grid">
+          <div>
+            <h3 class="about-subtitle">Focus areas</h3>
+            <ul class="clean-list">
+              <li>Ransomware early detection</li>
+              <li>Malware behavior analysis</li>
+              <li>Linux security hardening</li>
+              <li>Security automation</li>
+            </ul>
+          </div>
 
-  <section id="contact">
-    <h2>Contact</h2>
+          <div>
+            <h3 class="about-subtitle">Tech stack</h3>
+            <ul class="clean-list">
+              <li>Python, Bash scripting</li>
+              <li>Kali Linux, Ubuntu</li>
+              <li>Git, Linux CLI</li>
+              <li>FastAPI, ML (scikit-learn)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Links</h3>
-        <p>
-          GitHub: <a href="https://github.com/">Your GitHub Profile</a><br />
-          Website: GitHub Pages
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+      <div class="container-narrow">
+        <h2 class="section-heading">Contact</h2>
+        <p class="contact-text">
+          For collaborations, internships, or security projects, reach out via
+          <a href="https://github.com/yourusername" class="contact-link">GitHub</a> or email.
+        </p>
+        <p class="contact-note">
+          Include: role, timeline, tech stack, and task scope.
         </p>
       </div>
+    </section>
+  </main>
 
-      <div class="card">
-        <h3>Quick note</h3>
-        <p>
-          For collaborations/internships, share role + timeline + tech stack and a link to the task scope.
-        </p>
-      </div>
+  <footer>
+    <div class="container">
+      <p class="footer-text">© 2025 Tanish Shriyan. Cybersecurity Portfolio.</p>
     </div>
-  </section>
+  </footer>
 
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    © Tanish Shriyan | Cybersecurity Portfolio
-  </div>
-</footer>
   <script>
-    // Remove loader quickly after page is ready
+    // Premium opening animation
     window.addEventListener("load", () => {
-      document.documentElement.classList.add("is-ready");
-      const boot = document.getElementById("boot");
-      if (boot) boot.classList.add("hide");
-      setTimeout(() => boot && boot.remove(), 650);
+      const opening = document.getElementById("opening");
+      
+      setTimeout(() => {
+        opening.classList.add("fade-out");
+        document.documentElement.classList.add("is-ready");
+      }, 2400);
+      
+      setTimeout(() => {
+        opening.remove();
+      }, 3100);
+    });
+
+    // Smooth scroll reveal observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.project-card, .about-section, .contact-section').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>
 </html>
-
