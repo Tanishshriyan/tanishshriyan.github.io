@@ -8,43 +8,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Loading Screen - ADD THIS RIGHT BEFORE </body> tag -->
-<div class="loading-screen" id="loadingScreen">
-    <div class="loader-container">
-        <div class="security-shield">
-            <div class="shield">
-                <i class="fas fa-shield-alt"></i>
+<!-- UPGRADED LOADING SCREEN - Replace the existing one before </body> -->
+<div class="loading-screen-v2" id="loadingScreenV2">
+    <div class="cyber-loader">
+        <!-- 3D Shield Core -->
+        <div class="shield-3d">
+            <div class="shield-front">
+                <i class="fas fa-shield-virus"></i>
             </div>
-            <div class="shield-glow"></div>
+            <div class="shield-back"></div>
+            <div class="shield-side"></div>
         </div>
         
-        <div class="loading-matrix">
-            <div class="matrix-line"></div>
-            <div class="matrix-line"></div>
-            <div class="matrix-line"></div>
-            <div class="matrix-line"></div>
-            <div class="matrix-line"></div>
-        </div>
+        <!-- Code Rain Background -->
+        <canvas id="codeRainCanvas" class="code-rain"></canvas>
         
-        <div class="loading-progress">
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
+        <!-- Hacking Terminal -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <span>SECURITY_BOOT v2.0</span>
+                <div class="terminal-buttons">
+                    <span class="btn-red"></span>
+                    <span class="btn-yellow"></span>
+                    <span class="btn-green"></span>
+                </div>
             </div>
-            <span class="progress-text">SECURE BOOT: <span id="progressPercent">0</span>%</span>
+            <div class="terminal-body">
+                <div class="code-line">> Initializing neural threat matrix...</div>
+                <div class="code-line typing">> Loading LightGBM model weights... <span class="cursor">█</span></div>
+                <div class="code-line">> Scanning 1.2M behavioral signatures...</div>
+                <div class="code-line">> Encrypting portfolio data... [████████░░] 80%</div>
+                <div class="code-line success">✓ SECURE ACCESS GRANTED</div>
+            </div>
         </div>
         
-        <div class="loading-status">
-            <span class="status-item">🔐 Initializing Security Protocols</span>
-            <span class="status-item active">🛡️ Activating Threat Detection</span>
-            <span class="status-item">⚙️ Loading ML Models</span>
-            <span class="status-item">🌐 Establishing Secure Connection</span>
-            <span class="status-item">✅ Portfolio Decryption Complete</span>
+        <!-- Orbiting Particles -->
+        <div class="orbital-particles">
+            <div class="particle-orbit orbit-1"></div>
+            <div class="particle-orbit orbit-2"></div>
+            <div class="particle-orbit orbit-3"></div>
         </div>
     </div>
 </div>
 
     <!-- Animated Background -->
-    <div class="background-animation">
+        <div class="background-animation parallax" data-speed="0.2">
         <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
@@ -115,7 +123,7 @@
     <div class="container">
         <h2 class="section-title">About <span class="highlight">Me</span></h2>
         <div class="about-content">
-            <div class="about-text">
+            <div class="about-text scroll-reveal">
                 <p class="about-intro">
                     Hello! I'm a passionate Computer Science student with a deep interest in 
                     <span class="highlight">Cybersecurity</span> and <span class="highlight">Machine Learning</span>.
@@ -144,7 +152,7 @@
             <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
             <div class="skills-grid">
                 <!-- Cybersecurity -->
-                <div class="skill-category">
+                <div class="skill-category scroll-reveal magnetic">
                     <div class="category-header">
                         <i class="fas fa-lock"></i>
                         <h3>Cybersecurity</h3>
@@ -270,7 +278,7 @@
     <div class="container">
         <h2 class="section-title">Featured <span class="highlight">Project</span></h2>
         <div class="projects-grid">
-            <div class="project-card featured">
+            <div class="project-card featured scroll-reveal magnetic">
                 <div class="project-image">
                     <i class="fas fa-virus-slash"></i>
                 </div>
