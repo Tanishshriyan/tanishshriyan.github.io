@@ -233,7 +233,7 @@ if (contactForm) {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
-        emailjs.sendForm('service_rwuakgg', 'template_j7fzauf', this)
+        emailjs.sendForm('service_rwuakgg', 'template_q9vm74s', this)
             .then(function(response) {
                 alert('🎉 Message sent to tanishshriyan1@gmail.com!');
                 contactForm.reset();
