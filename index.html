@@ -8,6 +8,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Loading Screen - ADD THIS RIGHT BEFORE </body> tag -->
+<div class="loading-screen" id="loadingScreen">
+    <div class="loader-container">
+        <div class="security-shield">
+            <div class="shield">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="shield-glow"></div>
+        </div>
+        
+        <div class="loading-matrix">
+            <div class="matrix-line"></div>
+            <div class="matrix-line"></div>
+            <div class="matrix-line"></div>
+            <div class="matrix-line"></div>
+            <div class="matrix-line"></div>
+        </div>
+        
+        <div class="loading-progress">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <span class="progress-text">SECURE BOOT: <span id="progressPercent">0</span>%</span>
+        </div>
+        
+        <div class="loading-status">
+            <span class="status-item">🔐 Initializing Security Protocols</span>
+            <span class="status-item active">🛡️ Activating Threat Detection</span>
+            <span class="status-item">⚙️ Loading ML Models</span>
+            <span class="status-item">🌐 Establishing Secure Connection</span>
+            <span class="status-item">✅ Portfolio Decryption Complete</span>
+        </div>
+    </div>
+</div>
+
     <!-- Animated Background -->
     <div class="background-animation">
         <div class="particle"></div>

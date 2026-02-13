@@ -1,3 +1,47 @@
+// LOADING SCREEN - ADD THIS AT THE TOP OF YOUR script.js
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    const progressPercent = document.getElementById('progressPercent');
+    const statusItems = document.querySelectorAll('.status-item');
+    
+    let progress = 0;
+    let statusIndex = 0;
+    
+    // Simulate loading progress
+    const progressInterval = setInterval(() => {
+        progress += Math.random() * 8;
+        if (progress > 95) progress = 95;
+        progressPercent.textContent = Math.floor(progress);
+    }, 50);
+    
+    // Status updates
+    const statusInterval = setInterval(() => {
+        if (statusIndex < statusItems.length) {
+            statusItems[statusIndex].classList.add('active');
+            statusIndex++;
+        }
+    }, 600);
+    
+    // Hide loading screen after 4 seconds (adjust as needed)
+    setTimeout(() => {
+        clearInterval(progressInterval);
+        clearInterval(statusInterval);
+        progressPercent.textContent = '100';
+        
+        // Mark all statuses complete
+        statusItems.forEach(item => item.classList.add('complete'));
+        
+        // Fade out loading screen
+        setTimeout(() => {
+            loadingScreen.classList.add('fade-out');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 800);
+        }, 800);
+    }, 4000); // 4 second loading time
+});
+
+
 // Typing Animation
 const typingText = document.querySelector('.typing-text');
 const texts = [
