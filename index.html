@@ -100,7 +100,7 @@
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/tanishshriyan" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="mailto:tanishshriyan1@outlook.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:tanishshriyan1@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
             <div class="hero-image">
@@ -324,7 +324,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <a href="mailto:tanishshriyan1@outlook.com">tanishshriyan1@outlook.com</a>
+                                <a href="mailto:tanishshriyan1@gmail.com">tanishshriyan1@gmail.com</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -350,20 +350,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
+  <!-- SECURE WORKING CONTACT FORM -->
+<form class="contact-form" id="contactForm">
+    <!-- HONEYPOT SPAM TRAP (invisible) -->
+    <div style="position:absolute; left:-9999px;">
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+    </div>
+    
+    <div class="form-group">
+        <input type="text" id="name" name="user_name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+        <input type="email" id="email" name="user_email" placeholder="Your Email" required>
+    </div>
+    <div class="form-group">
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+    </div>
+    <div class="form-group">
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+    </div>
+    <input type="hidden" name="to_email" value="tanishshriyan1@gmail.com">
+    <button type="submit" class="btn btn-primary btn-submit">
+        <span>Send Message</span>
+        <i class="fas fa-paper-plane"></i>
+    </button>
+</form>
+
                         <button type="submit" class="btn btn-primary btn-submit">
                             <span>Send Message</span>
                             <i class="fas fa-paper-plane"></i>
@@ -382,11 +394,14 @@
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/tanishshriyan" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:tanishshriyan1@outlook.com"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:tanishshriyan1@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- EmailJS CDN -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 
     <script src="script.js"></script>
 </body>

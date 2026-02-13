@@ -213,15 +213,40 @@ document.addEventListener('DOMContentLoaded', function() {
     skillBars.forEach(bar => skillObserver.observe(bar));
 
     // 7. CONTACT FORM
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            alert(`Thank you, ${name}! Your message has been received.`);
-            contactForm.reset();
-        });
-    }
+
+emailjs.init("hrJVDoDspXKX-wgyR");  
+
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Spam protection
+        if (contactForm.website.value) {
+            alert('🤖 Spam detected!');
+            return;
+        }
+        
+        // Loading animation
+        const submitBtn = contactForm.querySelector('.btn-submit');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        emailjs.sendForm('service_rwuakgg', 'template_j7fzauf', this)
+            .then(function(response) {
+                alert('🎉 Message sent to tanishshriyan1@gmail.com!');
+                contactForm.reset();
+            }, function(error) {
+                alert('❌ Failed to send. Email me directly: tanishshriyan1@gmail.com');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+    });
+}
+
 
     // 8. PERFECT PAGE LOAD
     window.addEventListener('load', () => {
