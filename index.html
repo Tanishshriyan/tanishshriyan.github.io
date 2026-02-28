@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Tanish Shriyan | AI & Cybersecurity Engineer | Portfolio</title>
+    <title>Tanish Shriyan | AI & Cybersecurity Engineer | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -18,289 +19,423 @@
   ]
 }
 </script>
-<meta name="description" content="Tanish Shriyan - AI & Cybersecurity Engineer. Creator of Real-Time AI-Powered Ransomware Detection System using Behavioral Fingerprinting. Explore projects, skills, and research work.">
-
-
+    <meta name="description" content="Tanish Shriyan - AI & Cybersecurity Engineer. Creator of Real-Time AI-Powered Ransomware Detection System using Behavioral Fingerprinting.">
 </head>
 <body>
-<!-- UPGRADED LOADING SCREEN - Replace the existing one before </body> -->
-<div class="loading-screen-v2" id="loadingScreenV2">
-    <div class="cyber-loader">
-        <!-- 3D Shield Core -->
-        <div class="shield-3d">
-            <div class="shield-front">
-                <i class="fas fa-shield-virus"></i>
-            </div>
-            <div class="shield-back"></div>
-            <div class="shield-side"></div>
-        </div>
-        
-        <!-- Code Rain Background -->
-        <canvas id="codeRainCanvas" class="code-rain"></canvas>
-        
-        <!-- Hacking Terminal -->
-        <div class="terminal">
-            <div class="terminal-header">
-                <span>SECURITY_BOOT v2.0</span>
-                <div class="terminal-buttons">
-                    <span class="btn-red"></span>
-                    <span class="btn-yellow"></span>
-                    <span class="btn-green"></span>
+
+<!-- ═══════════════════════════════════════════════
+     CINEMATIC LOADING SCREEN
+═══════════════════════════════════════════════ -->
+<div class="loading-screen" id="loadingScreen">
+    <!-- Scanline Overlay -->
+    <div class="scanlines"></div>
+    
+    <!-- Particle Canvas -->
+    <canvas class="load-canvas" id="loadCanvas"></canvas>
+
+    <!-- Circuit Board Lines -->
+    <div class="circuit-grid">
+        <div class="circuit-h c1"></div>
+        <div class="circuit-h c2"></div>
+        <div class="circuit-v c3"></div>
+        <div class="circuit-v c4"></div>
+        <div class="circuit-node n1"></div>
+        <div class="circuit-node n2"></div>
+        <div class="circuit-node n3"></div>
+        <div class="circuit-node n4"></div>
+    </div>
+
+    <div class="loader-stage">
+
+        <!-- Hardware Assembly Scene -->
+        <div class="hardware-scene" id="hardwareScene">
+
+            <!-- CPU Chip -->
+            <div class="hw-item cpu-wrap" id="cpuEl">
+                <div class="cpu">
+                    <div class="cpu-pins top">
+                        <span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="cpu-core">
+                        <div class="cpu-die">
+                            <div class="cpu-grid">
+                                <span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                            <div class="cpu-label">CPU</div>
+                        </div>
+                    </div>
+                    <div class="cpu-pins bottom">
+                        <span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="cpu-pins left">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="cpu-pins right">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
                 </div>
+                <div class="hw-label">NEURAL CORE</div>
             </div>
-            <div class="terminal-body">
-                <div class="code-line">> Initializing neural threat matrix...</div>
-                <div class="code-line typing">> Loading LightGBM model weights... <span class="cursor">█</span></div>
-                <div class="code-line">> Scanning 1.2M behavioral signatures...</div>
-                <div class="code-line">> Encrypting portfolio data... [████████░░] 80%</div>
-                <div class="code-line success">✓ SECURE ACCESS GRANTED</div>
+
+            <!-- Mouse -->
+            <div class="hw-item mouse-wrap" id="mouseEl">
+                <div class="hw-mouse">
+                    <div class="mouse-body">
+                        <div class="mouse-btn left-btn"></div>
+                        <div class="mouse-btn right-btn"></div>
+                        <div class="mouse-wheel"></div>
+                        <div class="mouse-click-ring"></div>
+                    </div>
+                    <div class="mouse-cord"></div>
+                </div>
+                <div class="hw-label">INPUT DEVICE</div>
+            </div>
+
+            <!-- Keyboard -->
+            <div class="hw-item keyboard-wrap" id="keyboardEl">
+                <div class="hw-keyboard">
+                    <div class="kb-row">
+                        <div class="kb-key" data-delay="0">Q</div>
+                        <div class="kb-key" data-delay="60">W</div>
+                        <div class="kb-key" data-delay="120">E</div>
+                        <div class="kb-key" data-delay="180">R</div>
+                        <div class="kb-key" data-delay="240">T</div>
+                        <div class="kb-key" data-delay="300">Y</div>
+                        <div class="kb-key" data-delay="360">U</div>
+                    </div>
+                    <div class="kb-row">
+                        <div class="kb-key" data-delay="420">A</div>
+                        <div class="kb-key" data-delay="480">S</div>
+                        <div class="kb-key" data-delay="540">D</div>
+                        <div class="kb-key" data-delay="600">F</div>
+                        <div class="kb-key" data-delay="660">G</div>
+                        <div class="kb-key" data-delay="720">H</div>
+                    </div>
+                    <div class="kb-row">
+                        <div class="kb-key wide" data-delay="780">CTRL</div>
+                        <div class="kb-key space" data-delay="840">SPACE</div>
+                        <div class="kb-key wide" data-delay="900">ALT</div>
+                    </div>
+                </div>
+                <div class="hw-label">INTERFACE</div>
+            </div>
+
+        </div>
+
+        <!-- Terminal Output -->
+        <div class="load-terminal" id="loadTerminal">
+            <div class="lt-header">
+                <div class="lt-dots">
+                    <i></i><i></i><i></i>
+                </div>
+                <span class="lt-title">BOOT_SEQUENCE v3.0</span>
+                <span class="lt-badge">SECURE</span>
+            </div>
+            <div class="lt-body" id="ltBody">
+                <div class="lt-line" id="ll1">> Initializing quantum threat matrix <span class="lt-tag">[OK]</span></div>
+                <div class="lt-line" id="ll2">> Loading LightGBM model weights <span class="lt-tag">[OK]</span></div>
+                <div class="lt-line" id="ll3">> Scanning 1.2M behavioral signatures <span class="lt-tag">[OK]</span></div>
+                <div class="lt-line" id="ll4">> Encrypting portfolio data <span class="lt-tag">[OK]</span></div>
+                <div class="lt-line success" id="ll5">✓ SYSTEM ARMED — ACCESS GRANTED <span class="blink-cur">█</span></div>
+            </div>
+            <div class="lt-progress">
+                <div class="lt-bar" id="ltBar"></div>
+                <span class="lt-pct" id="ltPct">0%</span>
             </div>
         </div>
-        
-        <!-- Orbiting Particles -->
-        <div class="orbital-particles">
-            <div class="particle-orbit orbit-1"></div>
-            <div class="particle-orbit orbit-2"></div>
-            <div class="particle-orbit orbit-3"></div>
-        </div>
+
+    </div>
+
+    <!-- Hero Text Reveal (bottom) -->
+    <div class="load-identity">
+        <div class="load-name">TANISH SHRIYAN</div>
+        <div class="load-role">AI · CYBERSECURITY · FULL-STACK</div>
     </div>
 </div>
 
-    <!-- Animated Background -->
-        <div class="background-animation parallax" data-speed="0.2">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
+<!-- ═══════════════════════════════════════════════
+     CUSTOM CURSOR
+═══════════════════════════════════════════════ -->
+<div class="cursor-outer" id="cursorOuter"></div>
+<div class="cursor-dot" id="cursorDot"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-text">&lt;TS/&gt;</span>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+<!-- ═══════════════════════════════════════════════
+     MAIN CONTENT
+═══════════════════════════════════════════════ -->
+
+<!-- Animated Background -->
+<div class="background-animation" id="bgAnimation">
+    <canvas id="bgCanvas"></canvas>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <span class="logo-text">&lt;TS/&gt;</span>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <div class="toggle-track">
+                    <div class="toggle-icons">
+                        <i class="fas fa-moon icon-moon"></i>
+                        <i class="fas fa-sun icon-sun"></i>
+                    </div>
+                    <div class="toggle-thumb"></div>
+                </div>
+            </button>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="glitch" data-text="Tanish Shriyan">Tanish Shriyan</h1>
-                <div class="typing-container">
-                    <h2>I'm a <span class="typing-text"></span><span class="cursor">|</span></h2>
-                </div>
-                <p class="hero-description">
-                    Computer Science student specializing in Cybersecurity & Machine Learning.
-                    Building intelligent systems to detect threats and secure digital environments.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/tanishshriyan" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="mailto:tanishshriyan1@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                </div>
+<!-- ═══════════════════════════════════════════════
+     HERO SECTION
+═══════════════════════════════════════════════ -->
+<section id="home" class="hero perspective-section" data-depth="0">
+    <div class="hero-content">
+        <div class="hero-text reveal-up">
+            <div class="hero-eyebrow">
+                <span class="eyebrow-dot"></span>
+                Available for Opportunities
             </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <div class="card-border"></div>
+            <h1 class="glitch hero-name" data-text="Tanish Shriyan">Tanish Shriyan</h1>
+            <div class="typing-container">
+                <h2>I'm a <span class="typing-text"></span><span class="cursor-blink">|</span></h2>
+            </div>
+            <p class="hero-description">
+                Computer Science student specializing in Cybersecurity & Machine Learning.
+                Building intelligent systems to detect threats and secure digital environments.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <span>View Projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span>Get In Touch</span>
+                </a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/tanishshriyan" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="mailto:tanishshriyan1@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="hero-image reveal-right">
+            <div class="profile-card tilt-card">
+                <div class="tilt-card-inner">
+                    <div class="card-border-glow"></div>
                     <div class="profile-content">
                         <i class="fas fa-user-shield profile-icon"></i>
+                        <div class="profile-orbit orbit-1"></div>
+                        <div class="profile-orbit orbit-2"></div>
+                        <div class="profile-badge badge-1"><i class="fas fa-lock"></i></div>
+                        <div class="profile-badge badge-2"><i class="fas fa-robot"></i></div>
+                        <div class="profile-badge badge-3"><i class="fas fa-code"></i></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
+    </div>
+    <div class="scroll-indicator">
+        <div class="mouse-scroll">
+            <div class="scroll-wheel"></div>
         </div>
-    </section>
+        <span>Scroll to explore</span>
+    </div>
 
-    <!-- About Section -->
-<section id="about" class="about">
+    <!-- Floating geometric shapes -->
+    <div class="hero-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT SECTION
+═══════════════════════════════════════════════ -->
+<section id="about" class="about perspective-section" data-depth="1">
+    <div class="section-perspective-bg"></div>
     <div class="container">
-        <h2 class="section-title">About <span class="highlight">Me</span></h2>
+        <h2 class="section-title reveal-up">About <span class="highlight">Me</span></h2>
         <div class="about-content">
             <div class="about-text scroll-reveal">
                 <p class="about-intro">
-                    Hello! I'm a passionate Computer Science student with a deep interest in 
+                    Hello! I'm a passionate Computer Science student with a deep interest in
                     <span class="highlight">Cybersecurity</span> and <span class="highlight">Machine Learning</span>.
                 </p>
                 <p>
-                    Currently developing an advanced <strong>Ransomware Detection System</strong> using 
-                    machine learning algorithms (LightGBM & Isolation Forest) to identify malicious 
-                    behavior in real-time. My project combines system monitoring, behavioral analysis, 
+                    Currently developing an advanced <strong>Ransomware Detection System</strong> using
+                    machine learning algorithms (LightGBM & Isolation Forest) to identify malicious
+                    behavior in real-time. My project combines system monitoring, behavioral analysis,
                     and intelligent threat detection.
                 </p>
                 <p>
-                    I specialize in building secure, scalable applications with a focus on threat 
-                    detection, web security, and full-stack development. My technical stack includes 
+                    I specialize in building secure, scalable applications with a focus on threat
+                    detection, web security, and full-stack development. My technical stack includes
                     Python, FastAPI, JavaScript, and various cybersecurity tools.
                 </p>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-num" data-count="3">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num" data-count="10">0</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num" data-count="2">0</span>
+                        <span class="stat-label">Years Coding</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
-            <div class="skills-grid">
-                <!-- Cybersecurity -->
-                <div class="skill-category scroll-reveal magnetic">
-                    <div class="category-header">
-                        <i class="fas fa-lock"></i>
-                        <h3>Cybersecurity</h3>
+<!-- ═══════════════════════════════════════════════
+     SKILLS SECTION
+═══════════════════════════════════════════════ -->
+<section id="skills" class="skills perspective-section" data-depth="2">
+    <div class="section-perspective-bg"></div>
+    <div class="container">
+        <h2 class="section-title reveal-up">Technical <span class="highlight">Skills</span></h2>
+        <div class="skills-grid">
+            <div class="skill-category scroll-reveal tilt-card">
+                <div class="category-header">
+                    <div class="cat-icon-wrap"><i class="fas fa-lock"></i></div>
+                    <h3>Cybersecurity</h3>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <span class="skill-name">Penetration Testing</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
                     </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Penetration Testing</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Malware Analysis</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Network Security</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">OWASP Top 10</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Malware Analysis</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
                     </div>
-                    <div class="skill-tools">
-                        <span class="tool-badge">Burp Suite</span>
-                        <span class="tool-badge">Nmap</span>
-                        <span class="tool-badge">Nikto</span>
-                        <span class="tool-badge">Hydra</span>
+                    <div class="skill-item">
+                        <span class="skill-name">Network Security</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">OWASP Top 10</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
                     </div>
                 </div>
+                <div class="skill-tools">
+                    <span class="tool-badge">Burp Suite</span>
+                    <span class="tool-badge">Nmap</span>
+                    <span class="tool-badge">Nikto</span>
+                    <span class="tool-badge">Hydra</span>
+                </div>
+            </div>
 
-                <!-- Machine Learning -->
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-robot"></i>
-                        <h3>Machine Learning</h3>
+            <div class="skill-category scroll-reveal tilt-card">
+                <div class="category-header">
+                    <div class="cat-icon-wrap"><i class="fas fa-robot"></i></div>
+                    <h3>Machine Learning</h3>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <span class="skill-name">Model Training</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
                     </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Model Training</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Feature Engineering</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Anomaly Detection</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Data Analysis</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Feature Engineering</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
                     </div>
-                    <div class="skill-tools">
-                        <span class="tool-badge">LightGBM</span>
-                        <span class="tool-badge">Scikit-learn</span>
-                        <span class="tool-badge">Pandas</span>
-                        <span class="tool-badge">NumPy</span>
+                    <div class="skill-item">
+                        <span class="skill-name">Anomaly Detection</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Data Analysis</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
                     </div>
                 </div>
+                <div class="skill-tools">
+                    <span class="tool-badge">LightGBM</span>
+                    <span class="tool-badge">Scikit-learn</span>
+                    <span class="tool-badge">Pandas</span>
+                    <span class="tool-badge">NumPy</span>
+                </div>
+            </div>
 
-                <!-- Development -->
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-laptop-code"></i>
-                        <h3>Development</h3>
+            <div class="skill-category scroll-reveal tilt-card">
+                <div class="category-header">
+                    <div class="cat-icon-wrap"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Development</h3>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
                     </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">JavaScript</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">FastAPI</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Web Development</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
                     </div>
-                    <div class="skill-tools">
-                        <span class="tool-badge">FastAPI</span>
-                        <span class="tool-badge">HTML/CSS</span>
-                        <span class="tool-badge">Git</span>
-                        <span class="tool-badge">SQL</span>
+                    <div class="skill-item">
+                        <span class="skill-name">FastAPI</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
                     </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Web Development</span>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                    </div>
+                </div>
+                <div class="skill-tools">
+                    <span class="tool-badge">FastAPI</span>
+                    <span class="tool-badge">HTML/CSS</span>
+                    <span class="tool-badge">Git</span>
+                    <span class="tool-badge">SQL</span>
                 </div>
             </div>
         </div>
-    </section>
-<!-- Projects section (only Ransomware project) -->
-<section id="projects" class="projects">
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PROJECTS SECTION
+═══════════════════════════════════════════════ -->
+<section id="projects" class="projects perspective-section" data-depth="3">
+    <div class="section-perspective-bg"></div>
     <div class="container">
-        <h2 class="section-title">Featured <span class="highlight">Project</span></h2>
+        <h2 class="section-title reveal-up">Featured <span class="highlight">Project</span></h2>
         <div class="projects-grid">
-            <div class="project-card featured scroll-reveal magnetic">
+            <div class="project-card featured scroll-reveal tilt-card">
                 <div class="project-image">
-                    <i class="fas fa-virus-slash"></i>
+                    <div class="project-icon-bg">
+                        <i class="fas fa-virus-slash"></i>
+                    </div>
+                    <div class="project-overlay-text">ML-POWERED SECURITY</div>
                 </div>
                 <div class="project-content">
+                    <div class="project-status"><span class="status-dot"></span>In Development</div>
                     <h3>Ransomware Detection System</h3>
                     <p>
-                        Real-time ransomware detection using ML algorithms (LightGBM & Isolation Forest). 
-                        Monitors system processes, analyzes behavioral patterns, and identifies threats 
+                        Real-time ransomware detection using ML algorithms (LightGBM & Isolation Forest).
+                        Monitors system processes, analyzes behavioral patterns, and identifies threats
                         with high accuracy. Built with FastAPI backend and interactive web UI.
                     </p>
                     <div class="project-tags">
@@ -323,96 +458,96 @@
     </div>
 </section>
 
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p class="contact-intro">
-                        I'm currently seeking internship opportunities in cybersecurity and software development. 
-                        Feel free to reach out for collaborations, projects, or just a chat!
-                    </p>
-                    <div class="contact-methods">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:tanishshriyan1@gmail.com">tanishshriyan1@gmail.com</a>
-                            </div>
+<!-- ═══════════════════════════════════════════════
+     CONTACT SECTION
+═══════════════════════════════════════════════ -->
+<section id="contact" class="contact perspective-section" data-depth="4">
+    <div class="section-perspective-bg"></div>
+    <div class="container">
+        <h2 class="section-title reveal-up">Get In <span class="highlight">Touch</span></h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <p class="contact-intro">
+                    I'm currently seeking internship opportunities in cybersecurity and software development.
+                    Feel free to reach out for collaborations, projects, or just a chat!
+                </p>
+                <div class="contact-methods">
+                    <div class="contact-item scroll-reveal">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:tanishshriyan1@gmail.com">tanishshriyan1@gmail.com</a>
                         </div>
-                        <div class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <div>
-                                <h4>LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank">linkedin.com/in/tanishshriyan</a>
-                            </div>
+                    </div>
+                    <div class="contact-item scroll-reveal">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank">linkedin.com/in/tanishshriyan</a>
                         </div>
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <div>
-                                <h4>GitHub</h4>
-                                <a href="https://github.com/tanishshriyan" target="_blank">github.com/tanishshriyan</a>
-                            </div>
+                    </div>
+                    <div class="contact-item scroll-reveal">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/tanishshriyan" target="_blank">github.com/tanishshriyan</a>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Bengaluru, Karnataka, India</p>
-                            </div>
+                    </div>
+                    <div class="contact-item scroll-reveal">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Bengaluru, Karnataka, India</p>
                         </div>
                     </div>
                 </div>
-  <!-- SECURE WORKING CONTACT FORM -->
-<form class="contact-form" id="contactForm">
-    <!-- HONEYPOT SPAM TRAP (invisible) -->
-    <div style="position:absolute; left:-9999px;">
-        <input type="text" name="website" tabindex="-1" autocomplete="off">
-    </div>
-    
-    <div class="form-group">
-        <input type="text" id="name" name="user_name" placeholder="Your Name" required>
-    </div>
-    <div class="form-group">
-        <input type="email" id="email" name="user_email" placeholder="Your Email" required>
-    </div>
-    <div class="form-group">
-        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-    </div>
-    <div class="form-group">
-        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-    </div>
-    <input type="hidden" name="to_email" value="tanishshriyan1@gmail.com">
-    <button type="submit" class="btn btn-primary btn-submit">
-        <span>Send Message</span>
-        <i class="fas fa-paper-plane"></i>
-    </button>
-</form>
-       
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div style="position:absolute; left:-9999px;">
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
                 </div>
+                <div class="form-group">
+                    <input type="text" id="name" name="user_name" placeholder="Your Name" required>
+                    <span class="input-focus-line"></span>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="user_email" placeholder="Your Email" required>
+                    <span class="input-focus-line"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    <span class="input-focus-line"></span>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <span class="input-focus-line"></span>
+                </div>
+                <input type="hidden" name="to_email" value="tanishshriyan1@gmail.com">
+                <button type="submit" class="btn btn-primary btn-submit">
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; 2026 Tanish Shriyan. Built with <i class="fas fa-heart"></i> using HTML, CSS & JavaScript</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/tanishshriyan" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:tanishshriyan1@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2026 Tanish Shriyan. Built with <i class="fas fa-heart"></i> using HTML, CSS & JavaScript</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/tanishshriyan" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:tanishshriyan1@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- EmailJS CDN -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-
-    <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
