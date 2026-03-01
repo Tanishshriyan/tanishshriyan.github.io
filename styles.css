@@ -1622,3 +1622,104 @@ section {
     .load-name { font-size: 0.95rem; letter-spacing: 5px; }
     .contact-form { padding: 1.5rem; }
 }
+
+
+/* Enhanced Mobile Optimization */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  section {
+    padding: 3rem 1rem; /* Reduced from 4rem for shorter phones */
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .hero {
+    padding: 4rem 1rem 2rem;
+    min-height: 100vh;
+  }
+  
+  .hero-text h1 {
+    font-size: 1.8rem; /* Further reduction for tiny screens */
+    margin-bottom: 0.5rem;
+  }
+  
+  .typing-container h2 {
+    font-size: 1.3rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .profile-card {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .profile-icon {
+    font-size: 90px;
+  }
+  
+  .nav-menu.active {
+    padding: 1.5rem 0; /* Less padding for menu */
+  }
+  
+  .nav-link {
+    font-size: 1.1rem; /* Larger touch targets */
+    padding: 0.75rem 0;
+  }
+  
+  .btn {
+    padding: 1rem 1.5rem; /* Bigger buttons for thumbs */
+    font-size: 1rem;
+    min-height: 50px; /* Touch-friendly height */
+  }
+  
+  .social-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+  
+  .hamburger .bar {
+    width: 28px;
+    height: 4px; /* Thicker for easy tap */
+  }
+  
+  /* Form inputs */
+  .form-group input, .form-group textarea {
+    padding: 1.2rem;
+    font-size: 1rem;
+    min-height: 50px;
+  }
+  
+  /* Skill bars and cards */
+  .skill-category, .project-card {
+    padding: 1.5rem;
+  }
+  
+  .skill-progress {
+    height: 10px; /* Thicker bars */
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+  
+  .profile-card {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .profile-icon {
+    font-size: 80px;
+  }
+}
