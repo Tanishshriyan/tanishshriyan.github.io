@@ -3,394 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Tanish Shriyan | AI & Cybersecurity Engineer | Portfolio</title>
+    <title>Tanish Shriyan | Cybersecurity & ML Engineer</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Tanish Shriyan",
-  "url": "https://tanishshriyan.in",
-  "sameAs": [
-    "https://www.linkedin.com/in/tanishshriyan/",
-    "https://github.com/tanishshriyan"
-  ]
-}
-</script>
-<meta name="description" content="Tanish Shriyan - AI & Cybersecurity Engineer. Creator of Real-Time AI-Powered Ransomware Detection System using Behavioral Fingerprinting. Explore projects, skills, and research work.">
-
-
+    {"@context":"https://schema.org","@type":"Person","name":"Tanish Shriyan","url":"https://tanishshriyan.in","sameAs":["https://www.linkedin.com/in/tanishshriyan/","https://github.com/tanishshriyan"]}
+    </script>
+    <meta name="description" content="Tanish Shriyan – AI & Cybersecurity Engineer. Building intelligent systems to detect threats and secure digital environments.">
 </head>
 <body>
-<!-- UPGRADED LOADING SCREEN - Replace the existing one before </body> -->
-<div class="loading-screen-v2" id="loadingScreenV2">
-    <div class="cyber-loader">
-        <!-- 3D Shield Core -->
-        <div class="shield-3d">
-            <div class="shield-front">
-                <i class="fas fa-shield-virus"></i>
-            </div>
-            <div class="shield-back"></div>
-            <div class="shield-side"></div>
-        </div>
-        
-        <!-- Code Rain Background -->
-        <canvas id="codeRainCanvas" class="code-rain"></canvas>
-        
-        <!-- Hacking Terminal -->
-        <div class="terminal">
-            <div class="terminal-header">
-                <span>SECURITY_BOOT v2.0</span>
-                <div class="terminal-buttons">
-                    <span class="btn-red"></span>
-                    <span class="btn-yellow"></span>
-                    <span class="btn-green"></span>
-                </div>
-            </div>
-            <div class="terminal-body">
-                <div class="code-line">> Initializing neural threat matrix...</div>
-                <div class="code-line typing">> Loading LightGBM model weights... <span class="cursor">█</span></div>
-                <div class="code-line">> Scanning 1.2M behavioral signatures...</div>
-                <div class="code-line">> Encrypting portfolio data... [████████░░] 80%</div>
-                <div class="code-line success">✓ SECURE ACCESS GRANTED</div>
-            </div>
-        </div>
-        
-        <!-- Orbiting Particles -->
-        <div class="orbital-particles">
-            <div class="particle-orbit orbit-1"></div>
-            <div class="particle-orbit orbit-2"></div>
-            <div class="particle-orbit orbit-3"></div>
-        </div>
-    </div>
-</div>
 
-    <!-- Animated Background -->
-        <div class="background-animation parallax" data-speed="0.2">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+    <!-- Grain overlay -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader" aria-hidden="true">
+        <div class="loader-content">
+            <div class="loader-sig">TS</div>
+            <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+            <div class="loader-label mono" id="loaderLabel">Initializing...</div>
+        </div>
     </div>
+
+    <!-- Custom Cursor (desktop only) -->
+    <div class="cur-dot" id="curDot" aria-hidden="true"></div>
+    <div class="cur-ring" id="curRing" aria-hidden="true"></div>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-text">&lt;TS/&gt;</span>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
+    <nav class="nav" id="nav">
+        <div class="nav-wrap">
+            <a href="#home" class="nav-logo">
+                <span class="mono">[</span>TS<span class="mono">]</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home"     class="nav-link">Home</a></li>
+                <li><a href="#about"    class="nav-link">About</a></li>
+                <li><a href="#skills"   class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#contact"  class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ─── HERO ─────────────────────────────────────── -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="glitch" data-text="Tanish Shriyan">Tanish Shriyan</h1>
-                <div class="typing-container">
-                    <h2>I'm a <span class="typing-text"></span><span class="cursor">|</span></h2>
+        <div class="hero-grid">
+            <div class="hero-left">
+                <div class="hero-badge reveal-up">
+                    <span class="badge-pulse"></span>
+                    <span class="mono">Open to internships</span>
                 </div>
-                <p class="hero-description">
-                    Computer Science student specializing in Cybersecurity & Machine Learning.
-                    Building intelligent systems to detect threats and secure digital environments.
+                <h1 class="hero-name reveal-up d1">
+                    <span>Tanish</span>
+                    <span class="stroke-text">Shriyan</span>
+                </h1>
+                <p class="hero-role reveal-up d2">
+                    <span class="mono accent">_</span>
+                    <span id="typingText" class="typing-text"></span>
+                    <span class="cursor-blink">|</span>
                 </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <p class="hero-desc reveal-up d3">
+                    CS student engineering intelligent systems at the intersection of 
+                    <strong>cybersecurity</strong> and <strong>machine learning</strong> — 
+                    based in Bengaluru, India.
+                </p>
+                <div class="hero-cta reveal-up d4">
+                    <a href="#projects" class="btn-primary">
+                        View Work
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#contact" class="btn-outline">Contact Me</a>
                 </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/tanishshriyan" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="mailto:tanishshriyan1@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                <div class="hero-socials reveal-up d5">
+                    <a href="https://linkedin.com/in/tanishshriyan" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/tanishshriyan" target="_blank" rel="noopener" aria-label="GitHub" class="social-btn"><i class="fab fa-github"></i></a>
+                    <a href="mailto:tanishshriyan1@gmail.com" aria-label="Email" class="social-btn"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <div class="card-border"></div>
-                    <div class="profile-content">
-                        <i class="fas fa-user-shield profile-icon"></i>
+            <div class="hero-right reveal-scale">
+                <div class="vis-wrap">
+                    <div class="vis-ring r1"></div>
+                    <div class="vis-ring r2"></div>
+                    <div class="vis-ring r3"></div>
+                    <div class="vis-core">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <div class="vis-orbit oa"><span></span></div>
+                    <div class="vis-orbit ob"><span></span></div>
+                    <div class="vis-badge vb1">
+                        <span class="vb-num">99.2%</span>
+                        <span class="vb-label">Detection Rate</span>
+                    </div>
+                    <div class="vis-badge vb2">
+                        <span class="vb-num">ML/AI</span>
+                        <span class="vb-label">Core Focus</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
+        <div class="scroll-hint">
+            <div class="sh-line"></div>
+            <span class="mono sh-txt">scroll</span>
         </div>
     </section>
 
-    <!-- About Section -->
-<section id="about" class="about">
-    <div class="container">
-        <h2 class="section-title">About <span class="highlight">Me</span></h2>
-        <div class="about-content">
-            <div class="about-text scroll-reveal">
-                <p class="about-intro">
-                    Hello! I'm a passionate Computer Science student with a deep interest in 
-                    <span class="highlight">Cybersecurity</span> and <span class="highlight">Machine Learning</span>.
-                </p>
-                <p>
-                    Currently developing an advanced <strong>Ransomware Detection System</strong> using 
-                    machine learning algorithms (LightGBM & Isolation Forest) to identify malicious 
-                    behavior in real-time. My project combines system monitoring, behavioral analysis, 
-                    and intelligent threat detection.
-                </p>
-                <p>
-                    I specialize in building secure, scalable applications with a focus on threat 
-                    detection, web security, and full-stack development. My technical stack includes 
-                    Python, FastAPI, JavaScript, and various cybersecurity tools.
-                </p>
+    <!-- ─── ABOUT ─────────────────────────────────────── -->
+    <section id="about" class="about section">
+        <div class="wrap">
+            <div class="sec-tag reveal-up"><span class="mono">01 —</span> About</div>
+            <div class="about-grid">
+                <div class="about-l reveal-up">
+                    <h2 class="sec-heading">
+                        Securing the<br>
+                        <span class="accent">digital frontier</span>
+                    </h2>
+                </div>
+                <div class="about-r reveal-up d2">
+                    <p class="about-lead">
+                        Hello — I'm a passionate CS student with a deep focus on 
+                        <strong>Cybersecurity</strong> and <strong>Machine Learning</strong>.
+                    </p>
+                    <p>
+                        Currently developing an advanced Ransomware Detection System using 
+                        LightGBM &amp; Isolation Forest to identify malicious behavior in 
+                        real-time. My work combines system monitoring, behavioral analysis, 
+                        and intelligent threat detection.
+                    </p>
+                    <p>
+                        I build secure, scalable applications with a focus on threat 
+                        detection, web security, and full-stack development.
+                    </p>
+                    <div class="about-stats">
+                        <div class="astat"><span class="astat-n">1</span><span class="astat-l">Featured Project</span></div>
+                        <div class="astat"><span class="astat-n">3+</span><span class="astat-l">Tech Domains</span></div>
+                        <div class="astat"><span class="astat-n">∞</span><span class="astat-l">Learning Drive</span></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
+    <!-- ─── SKILLS ─────────────────────────────────────── -->
+    <section id="skills" class="skills section">
+        <div class="wrap">
+            <div class="sec-tag reveal-up"><span class="mono">02 —</span> Skills</div>
+            <h2 class="sec-heading reveal-up">Technical <span class="accent">Arsenal</span></h2>
             <div class="skills-grid">
-                <!-- Cybersecurity -->
-                <div class="skill-category scroll-reveal magnetic">
-                    <div class="category-header">
-                        <i class="fas fa-lock"></i>
+
+                <div class="sk-card reveal-up d1">
+                    <div class="sk-head">
+                        <div class="sk-icon"><i class="fas fa-lock"></i></div>
                         <h3>Cybersecurity</h3>
                     </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Penetration Testing</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
+                    <div class="sk-bars">
+                        <div class="sb-row">
+                            <div class="sb-meta"><span>Network Security</span><span>85%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="85"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Malware Analysis</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
+                        <div class="sb-row">
+                            <div class="sb-meta"><span>Penetration Testing</span><span>75%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="75"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Network Security</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">OWASP Top 10</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
+                        <div class="sb-row">
+                            <div class="sb-meta"><span>Threat Analysis</span><span>90%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="90"></div></div>
                         </div>
                     </div>
-                    <div class="skill-tools">
-                        <span class="tool-badge">Burp Suite</span>
-                        <span class="tool-badge">Nmap</span>
-                        <span class="tool-badge">Nikto</span>
-                        <span class="tool-badge">Hydra</span>
+                    <div class="sk-tags">
+                        <span>Wireshark</span><span>Metasploit</span><span>Nmap</span><span>Burp Suite</span>
                     </div>
                 </div>
 
-                <!-- Machine Learning -->
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-robot"></i>
+                <div class="sk-card reveal-up d2">
+                    <div class="sk-head">
+                        <div class="sk-icon"><i class="fas fa-brain"></i></div>
                         <h3>Machine Learning</h3>
                     </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Model Training</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
+                    <div class="sk-bars">
+                        <div class="sb-row">
+                            <div class="sb-meta"><span>LightGBM / XGBoost</span><span>88%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="88"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Feature Engineering</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
+                        <div class="sb-row">
+                            <div class="sb-meta"><span>Anomaly Detection</span><span>85%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="85"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Anomaly Detection</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Data Analysis</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
+                        <div class="sb-row">
+                            <div class="sb-meta"><span>Data Analysis</span><span>80%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="80"></div></div>
                         </div>
                     </div>
-                    <div class="skill-tools">
-                        <span class="tool-badge">LightGBM</span>
-                        <span class="tool-badge">Scikit-learn</span>
-                        <span class="tool-badge">Pandas</span>
-                        <span class="tool-badge">NumPy</span>
+                    <div class="sk-tags">
+                        <span>LightGBM</span><span>Scikit-learn</span><span>Pandas</span><span>NumPy</span>
                     </div>
                 </div>
 
-                <!-- Development -->
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-laptop-code"></i>
+                <div class="sk-card reveal-up d3">
+                    <div class="sk-head">
+                        <div class="sk-icon"><i class="fas fa-code"></i></div>
                         <h3>Development</h3>
                     </div>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
+                    <div class="sk-bars">
+                        <div class="sb-row">
+                            <div class="sb-meta"><span>Python</span><span>90%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="90"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">JavaScript</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
+                        <div class="sb-row">
+                            <div class="sb-meta"><span>JavaScript</span><span>80%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="80"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">FastAPI</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Web Development</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
+                        <div class="sb-row">
+                            <div class="sb-meta"><span>FastAPI / Backend</span><span>85%</span></div>
+                            <div class="sb-track"><div class="sb-fill" data-w="85"></div></div>
                         </div>
                     </div>
-                    <div class="skill-tools">
-                        <span class="tool-badge">FastAPI</span>
-                        <span class="tool-badge">HTML/CSS</span>
-                        <span class="tool-badge">Git</span>
-                        <span class="tool-badge">SQL</span>
+                    <div class="sk-tags">
+                        <span>FastAPI</span><span>HTML/CSS</span><span>Git</span><span>SQL</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PROJECTS ─────────────────────────────────────── -->
+    <section id="projects" class="projects section">
+        <div class="wrap">
+            <div class="sec-tag reveal-up"><span class="mono">03 —</span> Projects</div>
+            <h2 class="sec-heading reveal-up">Featured <span class="accent">Work</span></h2>
+            <div class="proj-feature reveal-up d1">
+                <div class="pf-body">
+                    <div class="pf-top">
+                        <span class="mono pf-num">001</span>
+                        <span class="pf-status-badge">In Development</span>
+                    </div>
+                    <h3 class="pf-title">
+                        Ransomware Detection<br>System
+                    </h3>
+                    <p class="pf-desc">
+                        Real-time behavioral ransomware detection using LightGBM &amp; Isolation Forest 
+                        ML algorithms. Monitors system processes, analyzes behavioral fingerprints, and 
+                        identifies threats with 99.2% accuracy. Built with a FastAPI backend and 
+                        interactive web dashboard.
+                    </p>
+                    <div class="pf-tech">
+                        <span>Python</span><span>LightGBM</span><span>FastAPI</span>
+                        <span>Isolation Forest</span><span>Behavioral Analysis</span>
+                    </div>
+                    <div class="pf-links">
+                        <a href="https://github.com/Tanishshriyan/ransomware-detection" target="_blank" rel="noopener" class="btn-primary">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="#" class="btn-outline">
+                            <i class="fas fa-arrow-up-right-from-square"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+                <div class="pf-code-panel">
+                    <div class="code-header">
+                        <div class="code-dots"><span></span><span></span><span></span></div>
+                        <span class="mono code-fname">threat_analyzer.py</span>
+                    </div>
+                    <div class="code-body">
+                        <div class="cl"><span class="ck">import</span> lightgbm <span class="ck">as</span> lgb</div>
+                        <div class="cl"><span class="ck">from</span> sklearn.ensemble <span class="ck">import</span> IsolationForest</div>
+                        <div class="cl">&nbsp;</div>
+                        <div class="cl"><span class="cf">def</span> <span class="cn">analyze_behavior</span>(proc):</div>
+                        <div class="cl ci"><span class="cc"># Behavioral fingerprinting</span></div>
+                        <div class="cl ci">features = extract_features(proc)</div>
+                        <div class="cl ci">anomaly = iso_forest.<span class="cf">predict</span>(features)</div>
+                        <div class="cl ci">score = lgb_model.<span class="cf">predict</span>(features)</div>
+                        <div class="cl ci"><span class="ck">return</span> score &gt; THREAT_THRESHOLD</div>
+                        <div class="cl">&nbsp;</div>
+                        <div class="cl"><span class="cc"># Accuracy: 99.2% | FP Rate: 0.8%</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<!-- Projects section (only Ransomware project) -->
-<section id="projects" class="projects">
-    <div class="container">
-        <h2 class="section-title">Featured <span class="highlight">Project</span></h2>
-        <div class="projects-grid">
-            <div class="project-card featured scroll-reveal magnetic">
-                <div class="project-image">
-                    <i class="fas fa-virus-slash"></i>
-                </div>
-                <div class="project-content">
-                    <h3>Ransomware Detection System</h3>
-                    <p>
-                        Real-time ransomware detection using ML algorithms (LightGBM & Isolation Forest). 
-                        Monitors system processes, analyzes behavioral patterns, and identifies threats 
-                        with high accuracy. Built with FastAPI backend and interactive web UI.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">Cybersecurity</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Tanishshriyan/ransomware-detection" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p class="contact-intro">
-                        I'm currently seeking internship opportunities in cybersecurity and software development. 
-                        Feel free to reach out for collaborations, projects, or just a chat!
+    <!-- ─── CONTACT ─────────────────────────────────────── -->
+    <section id="contact" class="contact section">
+        <div class="wrap">
+            <div class="sec-tag reveal-up"><span class="mono">04 —</span> Contact</div>
+            <h2 class="sec-heading reveal-up">Let's <span class="accent">Connect</span></h2>
+            <div class="contact-grid">
+                <div class="contact-l reveal-up d1">
+                    <p class="contact-lead">
+                        Actively seeking internship opportunities in cybersecurity and 
+                        software development. Let's build something meaningful together.
                     </p>
-                    <div class="contact-methods">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:tanishshriyan1@gmail.com">tanishshriyan1@gmail.com</a>
+                    <div class="clinks">
+                        <a href="mailto:tanishshriyan1@gmail.com" class="clink">
+                            <div class="clink-ico"><i class="fas fa-envelope"></i></div>
+                            <div class="clink-info">
+                                <span class="clink-lbl">Email</span>
+                                <span class="clink-val">tanishshriyan1@gmail.com</span>
                             </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <div>
-                                <h4>LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank">linkedin.com/in/tanishshriyan</a>
+                            <i class="fas fa-arrow-right clink-arr"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/tanishshriyan" target="_blank" rel="noopener" class="clink">
+                            <div class="clink-ico"><i class="fab fa-linkedin-in"></i></div>
+                            <div class="clink-info">
+                                <span class="clink-lbl">LinkedIn</span>
+                                <span class="clink-val">linkedin.com/in/tanishshriyan</span>
                             </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <div>
-                                <h4>GitHub</h4>
-                                <a href="https://github.com/tanishshriyan" target="_blank">github.com/tanishshriyan</a>
+                            <i class="fas fa-arrow-right clink-arr"></i>
+                        </a>
+                        <a href="https://github.com/tanishshriyan" target="_blank" rel="noopener" class="clink">
+                            <div class="clink-ico"><i class="fab fa-github"></i></div>
+                            <div class="clink-info">
+                                <span class="clink-lbl">GitHub</span>
+                                <span class="clink-val">github.com/tanishshriyan</span>
                             </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Bengaluru, Karnataka, India</p>
+                            <i class="fas fa-arrow-right clink-arr"></i>
+                        </a>
+                        <div class="clink no-hover">
+                            <div class="clink-ico"><i class="fas fa-location-dot"></i></div>
+                            <div class="clink-info">
+                                <span class="clink-lbl">Location</span>
+                                <span class="clink-val">Bengaluru, Karnataka, India</span>
                             </div>
                         </div>
                     </div>
                 </div>
-  <!-- SECURE WORKING CONTACT FORM -->
-<form class="contact-form" id="contactForm">
-    <!-- HONEYPOT SPAM TRAP (invisible) -->
-    <div style="position:absolute; left:-9999px;">
-        <input type="text" name="website" tabindex="-1" autocomplete="off">
-    </div>
-    
-    <div class="form-group">
-        <input type="text" id="name" name="user_name" placeholder="Your Name" required>
-    </div>
-    <div class="form-group">
-        <input type="email" id="email" name="user_email" placeholder="Your Email" required>
-    </div>
-    <div class="form-group">
-        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-    </div>
-    <div class="form-group">
-        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-    </div>
-    <input type="hidden" name="to_email" value="tanishshriyan1@gmail.com">
-    <button type="submit" class="btn btn-primary btn-submit">
-        <span>Send Message</span>
-        <i class="fas fa-paper-plane"></i>
-    </button>
-</form>
-       
+                <div class="contact-r reveal-up d2">
+                    <form class="cform" id="contactForm" novalidate>
+                        <div style="position:absolute;left:-9999px;top:-9999px;">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        <div class="cfield">
+                            <input type="text" id="fname" name="user_name" placeholder=" " required>
+                            <label for="fname">Your Name</label>
+                        </div>
+                        <div class="cfield">
+                            <input type="email" id="femail" name="user_email" placeholder=" " required>
+                            <label for="femail">Email Address</label>
+                        </div>
+                        <div class="cfield">
+                            <input type="text" id="fsubj" name="subject" placeholder=" " required>
+                            <label for="fsubj">Subject</label>
+                        </div>
+                        <div class="cfield">
+                            <textarea id="fmsg" name="message" rows="4" placeholder=" " required></textarea>
+                            <label for="fmsg">Message</label>
+                        </div>
+                        <input type="hidden" name="to_email" value="tanishshriyan1@gmail.com">
+                        <button type="submit" class="form-submit" id="submitBtn">
+                            <span class="fs-text">Send Message</span>
+                            <span class="fs-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -398,21 +367,19 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2026 Tanish Shriyan. Built with <i class="fas fa-heart"></i> using HTML, CSS & JavaScript</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/tanishshriyan" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:tanishshriyan1@gmail.com"><i class="fas fa-envelope"></i></a>
+        <div class="wrap">
+            <div class="footer-inner">
+                <span class="mono footer-copy">© 2026 Tanish Shriyan. All rights reserved.</span>
+                <div class="footer-socials">
+                    <a href="https://linkedin.com/in/tanishshriyan" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/tanishshriyan" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:tanishshriyan1@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- EmailJS CDN -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

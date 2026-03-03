@@ -1,255 +1,343 @@
-// ULTIMATE PORTFOLIO EFFECTS - COMPLETE REPLACEMENT
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // === ORIGINAL FUNCTIONALITY FIRST (Keep your existing features) ===
-    
-    // Typing Animation
-    const typingText = document.querySelector('.typing-text');
-    const texts = [
-        'Cybersecurity Enthusiast',
-        'ML Developer',
-        'Full-Stack Developer',
-        'Pentester',
-        'Problem Solver'
+/* ═══════════════════════════════════════════════════
+   TANISH SHRIYAN — PORTFOLIO SCRIPT
+   Performance-first: GPU-only animations, touch-aware,
+   debounced scroll, passive listeners throughout.
+   ═══════════════════════════════════════════════════ */
+
+(function () {
+    'use strict';
+
+    // ── DEVICE DETECTION ──────────────────────────────
+    const isTouchDevice = () =>
+        window.matchMedia('(hover: none)').matches || navigator.maxTouchPoints > 0;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ── LOADER ────────────────────────────────────────
+    const loader    = document.getElementById('loader');
+    const loaderBar = document.getElementById('loaderBar');
+    const loaderLabel = document.getElementById('loaderLabel');
+
+    const loaderSteps = [
+        { pct: 30,  label: 'Loading assets...' },
+        { pct: 65,  label: 'Building interface...' },
+        { pct: 90,  label: 'Almost ready...' },
+        { pct: 100, label: 'Welcome.' },
     ];
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
 
-    function type() {
-        const currentText = texts[textIndex];
-        
-        if (isDeleting) {
-            typingText.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typingText.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
-        }
-        
-        if (!isDeleting && charIndex === currentText.length) {
-            isDeleting = true;
-            setTimeout(type, 2000);
-            return;
-        }
-        
-        if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length;
-        }
-        
-        const typingSpeed = isDeleting ? 50 : 100;
-        setTimeout(type, typingSpeed);
+    let stepIdx = 0;
+    function runLoaderStep() {
+        if (stepIdx >= loaderSteps.length) return;
+        const s = loaderSteps[stepIdx++];
+        loaderBar.style.width = s.pct + '%';
+        loaderLabel.textContent = s.label;
+        if (stepIdx < loaderSteps.length) setTimeout(runLoaderStep, 550);
     }
-    
-    setTimeout(type, 1000);
 
-    // Navbar Scroll Effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+    // Kick off bar animation on next tick so CSS transition fires
+    requestAnimationFrame(() => {
+        requestAnimationFrame(runLoaderStep);
+    });
+
+    function hideLoader() {
+        loader.classList.add('hidden');
+        document.body.style.overflow = '';
+        initRevealObserver();   // Start observing reveals after load
+    }
+
+    // Hide loader: whichever comes last — page load OR minimum delay
+    const minDelay = prefersReducedMotion ? 100 : 2800;
+    let pageLoaded = false, delayDone = false;
+
+    window.addEventListener('load', () => {
+        pageLoaded = true;
+        if (delayDone) hideLoader();
+    });
+    setTimeout(() => {
+        delayDone = true;
+        if (pageLoaded) hideLoader();
+    }, minDelay);
+
+    // Prevent scroll flash during load
+    document.body.style.overflow = 'hidden';
+
+
+    // ── CUSTOM CURSOR (desktop only) ──────────────────
+    if (!isTouchDevice() && !prefersReducedMotion) {
+        const dot  = document.getElementById('curDot');
+        const ring = document.getElementById('curRing');
+
+        let rx = 0, ry = 0;          // ring position (lerped)
+        let tx = 0, ty = 0;          // target position
+        let rafId = null;
+
+        document.addEventListener('mousemove', (e) => {
+            tx = e.clientX;
+            ty = e.clientY;
+            // Dot follows immediately
+            dot.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px))`;
+        }, { passive: true });
+
+        function animateRing() {
+            // Smooth lerp for ring
+            rx += (tx - rx) * 0.12;
+            ry += (ty - ry) * 0.12;
+            ring.style.transform = `translate(calc(-50% + ${rx}px), calc(-50% + ${ry}px))`;
+            rafId = requestAnimationFrame(animateRing);
         }
+        animateRing();
+
+        // Hover state
+        const hoverEls = document.querySelectorAll(
+            'a, button, .sk-card, .clink:not(.no-hover), .social-btn, .vis-core'
+        );
+        hoverEls.forEach(el => {
+            el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+        });
+
+        // Hide on leave / show on enter
+        document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+        document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+    }
+
+
+    // ── TYPING ANIMATION ─────────────────────────────
+    const typingEl = document.getElementById('typingText');
+    if (typingEl) {
+        const phrases = [
+            'Cybersecurity Enthusiast',
+            'ML Developer',
+            'Full-Stack Developer',
+            'Pentester',
+            'Problem Solver',
+        ];
+        let pIdx = 0, cIdx = 0, deleting = false;
+        let typingTimer = null;
+
+        function typeNext() {
+            const phrase = phrases[pIdx];
+
+            if (!deleting) {
+                cIdx++;
+                typingEl.textContent = phrase.substring(0, cIdx);
+                if (cIdx === phrase.length) {
+                    deleting = true;
+                    typingTimer = setTimeout(typeNext, 2200);
+                    return;
+                }
+            } else {
+                cIdx--;
+                typingEl.textContent = phrase.substring(0, cIdx);
+                if (cIdx === 0) {
+                    deleting = false;
+                    pIdx = (pIdx + 1) % phrases.length;
+                }
+            }
+            typingTimer = setTimeout(typeNext, deleting ? 45 : 95);
+        }
+
+        setTimeout(typeNext, 1200);
+    }
+
+
+    // ── NAVIGATION ────────────────────────────────────
+    const nav       = document.getElementById('nav');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    const allNavLinks = document.querySelectorAll('.nav-link');
+
+    // Scroll class
+    let lastScrollY = window.scrollY;
+    function handleNavScroll() {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+        lastScrollY = window.scrollY;
+    }
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+    handleNavScroll();
+
+    // Mobile toggle
+    navToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        navToggle.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open);
     });
 
-    // Mobile Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
+    // Close menu on link click
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            navToggle.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
     });
 
-    // Smooth Scroll
+    // Smooth scroll with offset
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offsetTop = target.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+            if (!target) return;
+            e.preventDefault();
+            const top = target.getBoundingClientRect().top + window.scrollY
+                        - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || '70');
+            window.scrollTo({ top, behavior: 'smooth' });
         });
     });
 
-    // === NEW ULTIMATE FEATURES ===
-
-    // 1. LOADING SCREEN V2
-    const loadingScreen = document.getElementById('loadingScreenV2');
-    if (loadingScreen) {
-        const codeLines = document.querySelectorAll('.code-line');
-        codeLines.forEach((line, index) => {
-            setTimeout(() => line.style.animationPlayState = 'running', index * 800);
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    function updateActiveNav() {
+        const scrollMid = window.scrollY + window.innerHeight / 3;
+        let active = '';
+        sections.forEach(sec => {
+            if (sec.offsetTop <= scrollMid) active = sec.id;
         });
-        
-        setTimeout(() => {
-            loadingScreen.classList.add('fade-out');
-            setTimeout(() => loadingScreen.remove(), 1000);
-        }, 5000);
+        allNavLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${active}`);
+        });
     }
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
 
-    // 2. CUSTOM MOUSE CURSOR WITH TRAIL
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
-    
-    let mouseX = 0, mouseY = 0;
-    let trailCount = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        // Trail particles (every 3rd mouse move)
-        if (trailCount++ % 3 === 0) {
-            const trail = document.createElement('div');
-            trail.className = 'cursor-trail';
-            trail.style.left = (e.clientX - 3) + 'px';
-            trail.style.top = (e.clientY - 3) + 'px';
-            document.body.appendChild(trail);
-            setTimeout(() => trail.remove(), 600);
-        }
-        
-        // Smooth cursor movement
-        cursor.style.left = (mouseX - 10) + 'px';
-        cursor.style.top = (mouseY - 10) + 'px';
-    });
 
-    // Cursor hover effects
-    const hoverTargets = document.querySelectorAll('a, button, .btn, .social-icon, .project-card, .skill-category, .contact-item');
-    hoverTargets.forEach(target => {
-        target.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-        target.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-
-    // 3. MAGNETIC HOVER EFFECTS (add class="magnetic" to elements in HTML)
-    const magneticElements = document.querySelectorAll('.magnetic, .project-card, .skill-category');
-    document.addEventListener('mousemove', (e) => {
-        magneticElements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-            
-            const distance = Math.hypot(e.clientX - x, e.clientY - y);
-            const power = Math.min(100 / distance, 0.12);
-            
-            el.style.transform = `translate(${power * (e.clientX - x)}px, ${power * (e.clientY - y)}px) scale(1.02)`;
-        });
-    });
-
-    // Reset magnetic transform on mouse leave
-    magneticElements.forEach(el => {
-        el.addEventListener('mouseleave', () => {
-            el.style.transform = '';
-        });
-    });
-
-    // 4. ENHANCED SCROLL ANIMATIONS (add class="scroll-reveal" to elements in HTML)
-    const scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('animate');
-                }, index * 150);
-            }
-        });
-    }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
-    
-    document.querySelectorAll('.scroll-reveal, .about-text, .project-card, .skill-category, .contact-item').forEach(el => {
-        scrollObserver.observe(el);
-    });
-
-    // 5. PARALLAX EFFECT (add class="parallax" data-speed="0.3" to elements)
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        document.querySelectorAll('.parallax').forEach(el => {
-            const speed = parseFloat(el.getAttribute('data-speed')) || 0.5;
-            el.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-
-        // Active nav link highlighting
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (window.pageYOffset >= sectionTop - 100) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // 6. SKILL BAR ANIMATION
-    const skillBars = document.querySelectorAll('.skill-progress');
-    const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const width = entry.target.style.width;
-                entry.target.style.width = '0';
-                setTimeout(() => {
-                    entry.target.style.width = width;
-                }, 200);
-                skillObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    skillBars.forEach(bar => skillObserver.observe(bar));
-
-    // 7. CONTACT FORM
-
-emailjs.init("hrJVDoDspXKX-wgyR");  
-
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Spam protection
-        if (contactForm.website.value) {
-            alert('🤖 Spam detected!');
+    // ── SCROLL REVEAL ─────────────────────────────────
+    function initRevealObserver() {
+        if (prefersReducedMotion) {
+            document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => {
+                el.classList.add('visible');
+            });
+            initSkillBars();
             return;
         }
-        
-        // Loading animation
-        const submitBtn = contactForm.querySelector('.btn-submit');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-        
-        emailjs.sendForm('service_rwuakgg', 'template_q9vm74s', this)
-            .then(function(response) {
-                alert('🎉 Message sent to tanishshriyan1@gmail.com!');
-                contactForm.reset();
-            }, function(error) {
-                alert('❌ Failed to send. Email me directly: tanishshriyan1@gmail.com');
-            })
-            .finally(() => {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
+
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObs.unobserve(entry.target);
+                }
             });
-    });
-}
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => {
+            revealObs.observe(el);
+        });
+
+        // Skill bars via separate observer
+        initSkillBars();
+    }
 
 
-    // 8. PERFECT PAGE LOAD
-    window.addEventListener('load', () => {
-        document.body.classList.add('loaded');
-    });
-});
+    // ── SKILL BARS ────────────────────────────────────
+    function initSkillBars() {
+        const barObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.sb-fill').forEach(fill => {
+                        const w = fill.getAttribute('data-w');
+                        if (w) fill.style.width = w + '%';
+                    });
+                    barObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.sk-card').forEach(card => barObs.observe(card));
+    }
+
+
+    // ── CONTACT FORM ──────────────────────────────────
+    const form       = document.getElementById('contactForm');
+    const submitBtn  = document.getElementById('submitBtn');
+
+    if (form && submitBtn) {
+        // Init EmailJS
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init('hrJVDoDspXKX-wgyR');
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Honeypot check
+            if (form.website && form.website.value) {
+                return; // silent fail for bots
+            }
+
+            const btnText = submitBtn.querySelector('.fs-text');
+            const btnIcon = submitBtn.querySelector('.fs-icon');
+
+            submitBtn.disabled = true;
+            if (btnText) btnText.textContent = 'Sending...';
+            if (btnIcon) btnIcon.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+            if (typeof emailjs === 'undefined') {
+                showFormFeedback('EmailJS not loaded. Please email directly: tanishshriyan1@gmail.com', 'error');
+                resetBtn(btnText, btnIcon);
+                return;
+            }
+
+            emailjs.sendForm('service_rwuakgg', 'template_q9vm74s', form)
+                .then(() => {
+                    showFormFeedback('Message sent! I\'ll get back to you soon.', 'success');
+                    form.reset();
+                })
+                .catch(() => {
+                    showFormFeedback('Something went wrong. Email me directly: tanishshriyan1@gmail.com', 'error');
+                })
+                .finally(() => {
+                    resetBtn(btnText, btnIcon);
+                });
+        });
+
+        function resetBtn(btnText, btnIcon) {
+            submitBtn.disabled = false;
+            if (btnText) btnText.textContent = 'Send Message';
+            if (btnIcon) btnIcon.innerHTML = '<i class="fas fa-paper-plane"></i>';
+        }
+
+        function showFormFeedback(message, type) {
+            // Remove old feedback
+            const old = form.querySelector('.form-feedback');
+            if (old) old.remove();
+
+            const fb = document.createElement('div');
+            fb.className = 'form-feedback';
+            fb.textContent = message;
+            fb.style.cssText = `
+                padding: 0.75rem 1rem;
+                border-radius: 8px;
+                font-size: 0.85rem;
+                margin-top: 0.5rem;
+                border: 1px solid ${type === 'success' ? 'rgba(0,210,255,0.3)' : 'rgba(255,80,80,0.3)'};
+                background: ${type === 'success' ? 'rgba(0,210,255,0.08)' : 'rgba(255,80,80,0.08)'};
+                color: ${type === 'success' ? '#00D2FF' : '#FF6060'};
+            `;
+            form.appendChild(fb);
+            setTimeout(() => fb.remove(), 6000);
+        }
+    }
+
+
+    // ── VISUAL CORE INTERACTION ───────────────────────
+    // Tilt the visual rings subtly on mouse move (desktop only)
+    if (!isTouchDevice() && !prefersReducedMotion) {
+        const visWrap = document.querySelector('.vis-wrap');
+        if (visWrap) {
+            const handleTilt = (e) => {
+                const rect = visWrap.getBoundingClientRect();
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                const dx = (e.clientX - cx) / (rect.width / 2);
+                const dy = (e.clientY - cy) / (rect.height / 2);
+                visWrap.style.transform = `perspective(800px) rotateY(${dx * 8}deg) rotateX(${-dy * 8}deg)`;
+            };
+            const handleLeave = () => {
+                visWrap.style.transform = '';
+            };
+            visWrap.addEventListener('mousemove', handleTilt, { passive: true });
+            visWrap.addEventListener('mouseleave', handleLeave);
+        }
+    }
+
+})();
