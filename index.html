@@ -3,55 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanish Shriyan | Cybersecurity & ML Engineer</title>
+    <title>Tanish Shriyan | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"Tanish Shriyan","url":"https://tanishshriyan.in","sameAs":["https://www.linkedin.com/in/tanishshriyan/","https://github.com/tanishshriyan"]}
     </script>
-    <meta name="description" content="Tanish Shriyan – AI & Cybersecurity Engineer. Building intelligent systems to detect threats and secure digital environments.">
+    <meta name="description" content="Portfolio of Tanish Shriyan, a computer science student focused on cybersecurity, machine learning, and backend development.">
+    <script>
+        (function () {
+            try {
+                var savedTheme = localStorage.getItem("theme");
+                var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                var theme = savedTheme || (systemDark ? "dark" : "light");
+                document.documentElement.setAttribute("data-theme", theme);
+            } catch (error) {
+                document.documentElement.setAttribute("data-theme", "light");
+            }
+        }());
+    </script>
 </head>
 <body>
 
-    <!-- Grain overlay -->
     <div class="grain" aria-hidden="true"></div>
 
-    <!-- Loader -->
     <div class="loader" id="loader" aria-hidden="true">
         <div class="loader-content">
             <div class="loader-sig">TS</div>
             <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
-            <div class="loader-label mono" id="loaderLabel">Initializing...</div>
+            <div class="loader-label mono" id="loaderLabel">Loading...</div>
         </div>
     </div>
 
-    <!-- Custom Cursor (desktop only) -->
     <div class="cur-dot" id="curDot" aria-hidden="true"></div>
     <div class="cur-ring" id="curRing" aria-hidden="true"></div>
 
-    <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-wrap">
             <a href="#home" class="nav-logo">
                 <span class="mono">[</span>TS<span class="mono">]</span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home"     class="nav-link">Home</a></li>
-                <li><a href="#about"    class="nav-link">About</a></li>
-                <li><a href="#skills"   class="nav-link">Skills</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact"  class="nav-link">Contact</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+                <i class="fas fa-sun theme-icon theme-sun" aria-hidden="true"></i>
+                <i class="fas fa-moon theme-icon theme-moon" aria-hidden="true"></i>
+            </button>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- ─── HERO ─────────────────────────────────────── -->
     <section id="home" class="hero">
         <div class="hero-grid">
             <div class="hero-left">
@@ -69,18 +80,23 @@
                     <span class="cursor-blink">|</span>
                 </p>
                 <p class="hero-desc reveal-up d3">
-                    CS student engineering intelligent systems at the intersection of 
-                    <strong>cybersecurity</strong> and <strong>machine learning</strong> — 
-                    based in Bengaluru, India.
+                    Computer science student based in Bengaluru, focused on
+                    <strong>cybersecurity</strong>, <strong>machine learning</strong>, and
+                    backend development.
                 </p>
-                <div class="hero-cta reveal-up d4">
+                <div class="hero-notes reveal-up d4">
+                    <span>Bengaluru, India</span>
+                    <span>Cybersecurity + ML</span>
+                    <span>Python, FastAPI, SQL</span>
+                </div>
+                <div class="hero-cta reveal-up d5">
                     <a href="#projects" class="btn-primary">
                         View Work
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                     <a href="#contact" class="btn-outline">Contact Me</a>
                 </div>
-                <div class="hero-socials reveal-up d5">
+                <div class="hero-socials reveal-up">
                     <a href="https://linkedin.com/in/tanishshriyan" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/tanishshriyan" target="_blank" rel="noopener" aria-label="GitHub" class="social-btn"><i class="fab fa-github"></i></a>
                     <a href="mailto:tanishshriyan1@gmail.com" aria-label="Email" class="social-btn"><i class="fas fa-envelope"></i></a>
@@ -97,12 +113,12 @@
                     <div class="vis-orbit oa"><span></span></div>
                     <div class="vis-orbit ob"><span></span></div>
                     <div class="vis-badge vb1">
-                        <span class="vb-num">99.2%</span>
-                        <span class="vb-label">Detection Rate</span>
+                        <span class="vb-num">Current Focus</span>
+                        <span class="vb-label">Security tools and ML systems</span>
                     </div>
                     <div class="vis-badge vb2">
-                        <span class="vb-num">ML/AI</span>
-                        <span class="vb-label">Core Focus</span>
+                        <span class="vb-num">Looking For</span>
+                        <span class="vb-label">Internship opportunities</span>
                     </div>
                 </div>
             </div>
@@ -113,68 +129,53 @@
         </div>
     </section>
 
-    <!-- ─── ABOUT ─────────────────────────────────────── -->
     <section id="about" class="about section">
         <div class="wrap">
-            <div class="sec-tag reveal-up"><span class="mono">01 —</span> About</div>
+            <div class="sec-tag reveal-up"><span class="mono">01</span> About</div>
             <div class="about-grid">
                 <div class="about-l reveal-up">
                     <h2 class="sec-heading">
-                        Securing the<br>
-                        <span class="accent">digital frontier</span>
+                        A simple overview of
+                        <span class="accent">what I work on</span>
                     </h2>
                 </div>
                 <div class="about-r reveal-up d2">
                     <p class="about-lead">
-                        Hello — I'm a passionate CS student with a deep focus on 
-                        <strong>Cybersecurity</strong> and <strong>Machine Learning</strong>.
+                        I am a computer science student with a strong interest in
+                        <strong>cybersecurity</strong> and <strong>machine learning</strong>.
                     </p>
                     <p>
-                        Currently developing an advanced Ransomware Detection System using 
-                        LightGBM &amp; Isolation Forest to identify malicious behavior in 
-                        real-time. My work combines system monitoring, behavioral analysis, 
-                        and intelligent threat detection.
+                        My current project is a ransomware detection system built with
+                        LightGBM, Isolation Forest, and FastAPI. It focuses on process
+                        monitoring and behavior-based detection.
                     </p>
                     <p>
-                        I build secure, scalable applications with a focus on threat 
-                        detection, web security, and full-stack development.
+                        I also work on backend development, data handling, and security-focused
+                        applications. I prefer practical work, clear systems, and simple interfaces.
                     </p>
                     <div class="about-stats">
-                        <div class="astat"><span class="astat-n">1</span><span class="astat-l">Featured Project</span></div>
-                        <div class="astat"><span class="astat-n">3+</span><span class="astat-l">Tech Domains</span></div>
-                        <div class="astat"><span class="astat-n">∞</span><span class="astat-l">Learning Drive</span></div>
+                        <div class="astat"><span class="astat-n">CS</span><span class="astat-l">Student</span></div>
+                        <div class="astat"><span class="astat-n">1</span><span class="astat-l">Main Project</span></div>
+                        <div class="astat"><span class="astat-n">Now</span><span class="astat-l">Open to internships</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ─── SKILLS ─────────────────────────────────────── -->
     <section id="skills" class="skills section">
         <div class="wrap">
-            <div class="sec-tag reveal-up"><span class="mono">02 —</span> Skills</div>
-            <h2 class="sec-heading reveal-up">Technical <span class="accent">Arsenal</span></h2>
+            <div class="sec-tag reveal-up"><span class="mono">02</span> Skills</div>
+            <h2 class="sec-heading reveal-up">Tools and <span class="accent">areas I use</span></h2>
             <div class="skills-grid">
-
                 <div class="sk-card reveal-up d1">
                     <div class="sk-head">
                         <div class="sk-icon"><i class="fas fa-lock"></i></div>
                         <h3>Cybersecurity</h3>
                     </div>
-                    <div class="sk-bars">
-                        <div class="sb-row">
-                            <div class="sb-meta"><span>Network Security</span><span>85%</span></div>
-                            <div class="sb-track"><div class="sb-fill" data-w="85"></div></div>
-                        </div>
-                        <div class="sb-row">
-                            <div class="sb-meta"><span>Penetration Testing</span><span>75%</span></div>
-                            <div class="sb-track"><div class="sb-fill" data-w="75"></div></div>
-                        </div>
-                        <div class="sb-row">
-                            <div class="sb-meta"><span>Threat Analysis</span><span>90%</span></div>
-                            <div class="sb-track"><div class="sb-fill" data-w="90"></div></div>
-                        </div>
-                    </div>
+                    <p class="sk-copy">
+                        Basics of network security, web security testing, and threat analysis.
+                    </p>
                     <div class="sk-tags">
                         <span>Wireshark</span><span>Metasploit</span><span>Nmap</span><span>Burp Suite</span>
                     </div>
@@ -185,20 +186,9 @@
                         <div class="sk-icon"><i class="fas fa-brain"></i></div>
                         <h3>Machine Learning</h3>
                     </div>
-                    <div class="sk-bars">
-                        <div class="sb-row">
-                            <div class="sb-meta"><span>LightGBM / XGBoost</span><span>88%</span></div>
-                            <div class="sb-track"><div class="sb-fill" data-w="88"></div></div>
-                        </div>
-                        <div class="sb-row">
-                            <div class="sb-meta"><span>Anomaly Detection</span><span>85%</span></div>
-                            <div class="sb-track"><div class="sb-fill" data-w="85"></div></div>
-                        </div>
-                        <div class="sb-row">
-                            <div class="sb-meta"><span>Data Analysis</span><span>80%</span></div>
-                            <div class="sb-track"><div class="sb-fill" data-w="80"></div></div>
-                        </div>
-                    </div>
+                    <p class="sk-copy">
+                        Model training, anomaly detection, and data analysis for practical projects.
+                    </p>
                     <div class="sk-tags">
                         <span>LightGBM</span><span>Scikit-learn</span><span>Pandas</span><span>NumPy</span>
                     </div>
@@ -209,34 +199,21 @@
                         <div class="sk-icon"><i class="fas fa-code"></i></div>
                         <h3>Development</h3>
                     </div>
-                    <div class="sk-bars">
-                        <div class="sb-row">
-                            <div class="sb-meta"><span>Python</span><span>90%</span></div>
-                            <div class="sb-track"><div class="sb-fill" data-w="90"></div></div>
-                        </div>
-                        <div class="sb-row">
-                            <div class="sb-meta"><span>JavaScript</span><span>80%</span></div>
-                            <div class="sb-track"><div class="sb-fill" data-w="80"></div></div>
-                        </div>
-                        <div class="sb-row">
-                            <div class="sb-meta"><span>FastAPI / Backend</span><span>85%</span></div>
-                            <div class="sb-track"><div class="sb-fill" data-w="85"></div></div>
-                        </div>
-                    </div>
+                    <p class="sk-copy">
+                        Backend-focused development with Python, JavaScript, APIs, and databases.
+                    </p>
                     <div class="sk-tags">
                         <span>FastAPI</span><span>HTML/CSS</span><span>Git</span><span>SQL</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ─── PROJECTS ─────────────────────────────────────── -->
     <section id="projects" class="projects section">
         <div class="wrap">
-            <div class="sec-tag reveal-up"><span class="mono">03 —</span> Projects</div>
-            <h2 class="sec-heading reveal-up">Featured <span class="accent">Work</span></h2>
+            <div class="sec-tag reveal-up"><span class="mono">03</span> Projects</div>
+            <h2 class="sec-heading reveal-up">Current <span class="accent">project</span></h2>
             <div class="proj-feature reveal-up d1">
                 <div class="pf-body">
                     <div class="pf-top">
@@ -247,10 +224,10 @@
                         Ransomware Detection<br>System
                     </h3>
                     <p class="pf-desc">
-                        Real-time behavioral ransomware detection using LightGBM &amp; Isolation Forest 
-                        ML algorithms. Monitors system processes, analyzes behavioral fingerprints, and 
-                        identifies threats with 99.2% accuracy. Built with a FastAPI backend and 
-                        interactive web dashboard.
+                        A ransomware detection system that monitors running processes and
+                        flags suspicious behavior using LightGBM and Isolation Forest.
+                        The project includes a FastAPI backend and a web dashboard for
+                        viewing results.
                     </p>
                     <div class="pf-tech">
                         <span>Python</span><span>LightGBM</span><span>FastAPI</span>
@@ -275,29 +252,26 @@
                         <div class="cl"><span class="ck">from</span> sklearn.ensemble <span class="ck">import</span> IsolationForest</div>
                         <div class="cl">&nbsp;</div>
                         <div class="cl"><span class="cf">def</span> <span class="cn">analyze_behavior</span>(proc):</div>
-                        <div class="cl ci"><span class="cc"># Behavioral fingerprinting</span></div>
+                        <div class="cl ci"><span class="cc"># Process behavior features</span></div>
                         <div class="cl ci">features = extract_features(proc)</div>
                         <div class="cl ci">anomaly = iso_forest.<span class="cf">predict</span>(features)</div>
                         <div class="cl ci">score = lgb_model.<span class="cf">predict</span>(features)</div>
                         <div class="cl ci"><span class="ck">return</span> score &gt; THREAT_THRESHOLD</div>
-                        <div class="cl">&nbsp;</div>
-                        <div class="cl"><span class="cc"># Accuracy: 99.2% | FP Rate: 0.8%</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ─── CONTACT ─────────────────────────────────────── -->
     <section id="contact" class="contact section">
         <div class="wrap">
-            <div class="sec-tag reveal-up"><span class="mono">04 —</span> Contact</div>
-            <h2 class="sec-heading reveal-up">Let's <span class="accent">Connect</span></h2>
+            <div class="sec-tag reveal-up"><span class="mono">04</span> Contact</div>
+            <h2 class="sec-heading reveal-up">Get <span class="accent">in touch</span></h2>
             <div class="contact-grid">
                 <div class="contact-l reveal-up d1">
                     <p class="contact-lead">
-                        Actively seeking internship opportunities in cybersecurity and 
-                        software development. Let's build something meaningful together.
+                        I am looking for internship opportunities in cybersecurity,
+                        machine learning, or backend development.
                     </p>
                     <div class="clinks">
                         <a href="mailto:tanishshriyan1@gmail.com" class="clink">
@@ -365,11 +339,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="wrap">
             <div class="footer-inner">
-                <span class="mono footer-copy">© 2026 Tanish Shriyan. All rights reserved.</span>
+                <span class="mono footer-copy">&copy; 2026 Tanish Shriyan</span>
                 <div class="footer-socials">
                     <a href="https://linkedin.com/in/tanishshriyan" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/tanishshriyan" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
