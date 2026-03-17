@@ -471,6 +471,10 @@ strong {
     -webkit-text-stroke: 1px rgba(23, 18, 13, 0.6);
 }
 
+:root[data-theme="dark"] .stroke-text {
+    -webkit-text-stroke: 1px rgba(246, 248, 251, 0.72);
+}
+
 .hero-role {
     display: flex;
     align-items: center;
