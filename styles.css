@@ -1209,7 +1209,7 @@ strong {
     width: 100%;
     padding: 0.95rem 1.4rem;
     background: var(--text-bright);
-    color: #fffaf4;
+    color: var(--button-light-text);
     font-size: 0.94rem;
     font-weight: 600;
     border: 1px solid var(--text-bright);
