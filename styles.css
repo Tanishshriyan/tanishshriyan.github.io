@@ -41,6 +41,12 @@
     --liquid-a: rgba(143, 78, 45, 0.18);
     --liquid-b: rgba(32, 73, 58, 0.16);
     --liquid-c: rgba(247, 215, 172, 0.34);
+    --clay-base: rgba(244, 235, 220, 0.92);
+    --clay-base-strong: rgba(248, 241, 230, 0.98);
+    --clay-highlight: rgba(255, 255, 255, 0.82);
+    --clay-shadow-dark: rgba(144, 119, 87, 0.18);
+    --clay-shadow-light: rgba(255, 255, 255, 0.66);
+    --clay-inset: inset 1px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(143, 78, 45, 0.06);
 
     --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
     --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -83,6 +89,12 @@
     --liquid-a: rgba(210, 142, 99, 0.16);
     --liquid-b: rgba(137, 183, 166, 0.15);
     --liquid-c: rgba(120, 156, 204, 0.16);
+    --clay-base: rgba(27, 35, 46, 0.9);
+    --clay-base-strong: rgba(31, 40, 52, 0.96);
+    --clay-highlight: rgba(255, 255, 255, 0.1);
+    --clay-shadow-dark: rgba(0, 0, 0, 0.36);
+    --clay-shadow-light: rgba(125, 157, 195, 0.08);
+    --clay-inset: inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 0 rgba(0, 0, 0, 0.18);
 }
 
 *, *::before, *::after {
@@ -243,9 +255,13 @@ strong {
     -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent 42%),
-        linear-gradient(135deg, var(--glass-tint-strong), var(--glass-tint));
+        linear-gradient(145deg, color-mix(in srgb, var(--clay-base-strong) 78%, var(--glass-tint-strong) 22%), color-mix(in srgb, var(--clay-base) 78%, var(--glass-tint) 22%));
     border: 1px solid color-mix(in srgb, var(--glass-edge) 70%, var(--border));
-    box-shadow: var(--glass-shadow);
+    box-shadow:
+        14px 14px 30px var(--clay-shadow-dark),
+        -10px -10px 24px var(--clay-shadow-light),
+        var(--clay-inset),
+        var(--glass-shadow);
 }
 
 .glass-panel::before,
@@ -260,6 +276,19 @@ strong {
         linear-gradient(135deg, rgba(255, 255, 255, 0.34), transparent 38%),
         radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), transparent 34%);
     opacity: 0.9;
+}
+
+.glass-panel::after,
+.glass-chip::after,
+.glass-shell::after {
+    content: "";
+    position: absolute;
+    inset: auto 12% 8% 12%;
+    height: 18%;
+    border-radius: 999px;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.18), transparent 72%);
+    opacity: 0.55;
 }
 
 .liquid-panel::after,
@@ -422,6 +451,10 @@ strong {
     background: transparent;
     color: var(--text-bright);
     transition: transform 0.25s var(--ease-out-expo), border-color 0.25s, background 0.25s, color 0.25s;
+    box-shadow:
+        8px 8px 18px var(--clay-shadow-dark),
+        -6px -6px 16px var(--clay-shadow-light),
+        var(--clay-inset);
 }
 
 .theme-toggle:hover {
@@ -646,6 +679,10 @@ strong {
     -webkit-backdrop-filter: blur(14px);
     color: var(--muted);
     font-size: 0.83rem;
+    box-shadow:
+        8px 8px 18px color-mix(in srgb, var(--clay-shadow-dark) 72%, transparent),
+        -6px -6px 14px color-mix(in srgb, var(--clay-shadow-light) 78%, transparent),
+        inset 1px 1px 0 rgba(255, 255, 255, 0.34);
 }
 
 .hero-cta {
@@ -670,7 +707,11 @@ strong {
     font-size: 0.95rem;
     color: var(--muted);
     background: transparent;
-    transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.25s;
+    transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
+    box-shadow:
+        8px 8px 16px color-mix(in srgb, var(--clay-shadow-dark) 80%, transparent),
+        -6px -6px 16px color-mix(in srgb, var(--clay-shadow-light) 76%, transparent),
+        var(--clay-inset);
 }
 
 .social-btn:hover {
@@ -680,6 +721,10 @@ strong {
         linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent),
         rgba(255, 251, 245, 0.26);
     transform: translateY(-2px);
+    box-shadow:
+        12px 12px 24px color-mix(in srgb, var(--clay-shadow-dark) 82%, transparent),
+        -8px -8px 18px color-mix(in srgb, var(--clay-shadow-light) 80%, transparent),
+        var(--clay-inset);
 }
 
 .hero-right {
@@ -755,7 +800,11 @@ strong {
     border-radius: 24px;
     font-size: 2.2rem;
     color: var(--accent);
-    box-shadow: 0 16px 32px rgba(85, 62, 34, 0.08);
+    box-shadow:
+        16px 16px 28px color-mix(in srgb, var(--clay-shadow-dark) 82%, transparent),
+        -10px -10px 22px color-mix(in srgb, var(--clay-shadow-light) 82%, transparent),
+        inset 1px 1px 0 rgba(255, 255, 255, 0.48),
+        inset -1px -1px 0 rgba(143, 78, 45, 0.08);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 }
@@ -868,7 +917,11 @@ strong {
         linear-gradient(135deg, color-mix(in srgb, var(--accent) 78%, white), color-mix(in srgb, var(--highlight) 35%, var(--accent) 65%));
     color: var(--button-light-text);
     border: 1px solid rgba(255, 255, 255, 0.28);
-    box-shadow: 0 18px 34px rgba(143, 78, 45, 0.18);
+    box-shadow:
+        14px 14px 24px color-mix(in srgb, var(--accent) 20%, var(--clay-shadow-dark) 80%),
+        -8px -8px 20px color-mix(in srgb, white 70%, var(--clay-shadow-light) 30%),
+        inset 1px 1px 0 rgba(255, 255, 255, 0.28),
+        inset -1px -1px 0 rgba(0, 0, 0, 0.08);
 }
 
 .btn-primary:hover {
@@ -883,6 +936,10 @@ strong {
     border: 1px solid color-mix(in srgb, var(--glass-edge) 62%, var(--border-strong));
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
+    box-shadow:
+        10px 10px 20px color-mix(in srgb, var(--clay-shadow-dark) 78%, transparent),
+        -6px -6px 16px color-mix(in srgb, var(--clay-shadow-light) 82%, transparent),
+        var(--clay-inset);
 }
 
 .btn-outline:hover {
@@ -963,6 +1020,10 @@ strong {
 .astat {
     padding: 1rem;
     border-radius: 20px;
+    box-shadow:
+        10px 10px 18px color-mix(in srgb, var(--clay-shadow-dark) 70%, transparent),
+        -6px -6px 16px color-mix(in srgb, var(--clay-shadow-light) 80%, transparent),
+        var(--clay-inset);
 }
 
 .astat-n {
@@ -1026,6 +1087,11 @@ strong {
     border: 1px solid rgba(143, 78, 45, 0.15);
     color: var(--accent);
     flex-shrink: 0;
+    box-shadow:
+        10px 10px 18px color-mix(in srgb, var(--clay-shadow-dark) 74%, transparent),
+        -6px -6px 16px color-mix(in srgb, var(--clay-shadow-light) 82%, transparent),
+        inset 1px 1px 0 rgba(255, 255, 255, 0.34),
+        inset -1px -1px 0 rgba(143, 78, 45, 0.08);
 }
 
 .sk-head h3 {
@@ -1065,6 +1131,10 @@ strong {
         rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+        8px 8px 15px color-mix(in srgb, var(--clay-shadow-dark) 62%, transparent),
+        -5px -5px 12px color-mix(in srgb, var(--clay-shadow-light) 72%, transparent),
+        inset 1px 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .proj-feature {
@@ -1100,6 +1170,10 @@ strong {
     letter-spacing: 0.04em;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+        8px 8px 16px color-mix(in srgb, var(--clay-shadow-dark) 62%, transparent),
+        -5px -5px 12px color-mix(in srgb, var(--clay-shadow-light) 72%, transparent),
+        inset 1px 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .pf-title {
@@ -1313,6 +1387,9 @@ strong {
     outline: none;
     transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
     resize: none;
+    box-shadow:
+        inset 6px 6px 14px color-mix(in srgb, var(--clay-shadow-dark) 54%, transparent),
+        inset -4px -4px 10px color-mix(in srgb, var(--clay-shadow-light) 62%, transparent);
 }
 
 .cfield textarea {
@@ -1364,7 +1441,11 @@ strong {
     border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 999px;
     transition: background 0.25s, border-color 0.25s, transform 0.25s;
-    box-shadow: 0 18px 34px rgba(43, 36, 29, 0.16);
+    box-shadow:
+        16px 16px 28px color-mix(in srgb, var(--clay-shadow-dark) 82%, transparent),
+        -8px -8px 20px color-mix(in srgb, var(--clay-shadow-light) 82%, transparent),
+        inset 1px 1px 0 rgba(255, 255, 255, 0.24),
+        inset -1px -1px 0 rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
 }
