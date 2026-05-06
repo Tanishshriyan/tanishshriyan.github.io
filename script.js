@@ -1,52 +1,64 @@
-// ── HAMBURGER MENU ────────────────────────────────────────
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+const navLinks = document.querySelectorAll(".nav-links a");
+const sections = document.querySelectorAll("main section[id]");
 
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-});
-
-function closeMobile() {
-  mobileMenu.classList.remove('open');
+function closeMobileMenu() {
+  mobileMenu.classList.remove("open");
+  hamburger.setAttribute("aria-expanded", "false");
 }
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-    mobileMenu.classList.remove('open');
-  }
+hamburger.addEventListener("click", () => {
+  const isOpen = mobileMenu.classList.toggle("open");
+  hamburger.setAttribute("aria-expanded", String(isOpen));
 });
 
-// ── SCROLL REVEAL ─────────────────────────────────────────
-const reveals = document.querySelectorAll('.reveal');
+mobileMenu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", closeMobileMenu);
+});
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      revealObserver.unobserve(entry.target);
-    }
+document.addEventListener("click", (event) => {
+  if (!mobileMenu.classList.contains("open")) return;
+  if (hamburger.contains(event.target) || mobileMenu.contains(event.target)) return;
+  closeMobileMenu();
+});
+
+const revealItems = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  revealItems.forEach((item) => {
+    revealObserver.observe(item);
   });
-}, { threshold: 0.08 });
+} else {
+  revealItems.forEach((item) => {
+    item.classList.add("visible");
+  });
+}
 
-reveals.forEach(r => revealObserver.observe(r));
+function updateActiveNav() {
+  let current = "";
 
-// ── ACTIVE NAV HIGHLIGHT ───────────────────────────────────
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-
-  sections.forEach(section => {
-    if (window.scrollY >= section.offsetTop - 120) {
+  sections.forEach((section) => {
+    if (window.scrollY >= section.offsetTop - 130) {
       current = section.id;
     }
   });
 
-  navLinks.forEach(link => {
-    link.style.color = link.getAttribute('href') === '#' + current
-      ? 'var(--accent)'
-      : '';
+  navLinks.forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
   });
-});
+}
+
+updateActiveNav();
+window.addEventListener("scroll", updateActiveNav, { passive: true });
