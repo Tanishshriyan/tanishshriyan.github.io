@@ -1,363 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanish Shriyan | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Person","name":"Tanish Shriyan","url":"https://tanishshriyan.in","sameAs":["https://www.linkedin.com/in/tanishshriyan/","https://github.com/tanishshriyan"]}
-    </script>
-    <meta name="description" content="Portfolio of Tanish Shriyan, a computer science student focused on cybersecurity, machine learning, and backend development.">
-    <script>
-        (function () {
-            try {
-                var savedTheme = localStorage.getItem("theme");
-                var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-                var theme = savedTheme || (systemDark ? "dark" : "light");
-                document.documentElement.setAttribute("data-theme", theme);
-            } catch (error) {
-                document.documentElement.setAttribute("data-theme", "light");
-            }
-        }());
-    </script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tanish Shriyan — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-    <div class="grain" aria-hidden="true"></div>
-    <div class="liquid-bg" aria-hidden="true">
-        <span class="liquid-orb orb-a"></span>
-        <span class="liquid-orb orb-b"></span>
-        <span class="liquid-orb orb-c"></span>
-        <span class="liquid-orb orb-d"></span>
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">TS_</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+    <a href="mailto:tanishshriyan7@gmail.com" class="nav-cta">Get in touch</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about"          onclick="closeMobile()">About</a>
+    <a href="#skills"         onclick="closeMobile()">Skills</a>
+    <a href="#projects"       onclick="closeMobile()">Projects</a>
+    <a href="#certifications" onclick="closeMobile()">Certifications</a>
+    <a href="#education"      onclick="closeMobile()">Education</a>
+    <a href="mailto:tanishshriyan7@gmail.com" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <section id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+    <div class="hero-inner">
+      <div class="hero-tag">Available for Internships</div>
+      <h1 class="hero-name">Tanish<br/><span>Shriyan</span></h1>
+      <p class="hero-role">Cybersecurity &amp; Web Development</p>
+      <p class="hero-desc">Diploma CS student who builds security tools that actually work. From ransomware detectors to phishing classifiers — I write Python, train models, and ship clean interfaces.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="mailto:tanishshriyan7@gmail.com" class="btn-ghost">Get in Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">9.45</span><span class="stat-label">CGPA</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">Projects Built</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Certifications</span></div>
+      </div>
     </div>
+  </section>
 
-    <div class="loader" id="loader" aria-hidden="true">
-        <div class="loader-content">
-            <div class="loader-sig">TS</div>
-            <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
-            <div class="loader-label mono" id="loaderLabel">Loading...</div>
-        </div>
+  <section id="about">
+    <div class="reveal">
+      <p class="section-tag">// about me</p>
+      <h2 class="section-title">Who I <span>Am</span></h2>
+      <div class="divider"></div>
     </div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>I'm a Computer Science Engineering diploma student from Udupi, Karnataka, focused on cybersecurity and web development. I enjoy working on problems that have a real security impact — understanding how attacks happen and building tools to detect or prevent them.</p>
+        <p>I've built two complete security tools independently: a real-time ransomware detection system for Windows using machine learning, and a phishing URL classifier with a full web interface. Both projects go from raw data all the way to a working, usable product.</p>
+        <p>I write clean Python, work comfortably on Linux, and know how to put together functional front-end interfaces. I'm currently looking for internship opportunities where I can contribute and keep learning.</p>
+      </div>
+      <div class="about-right">
+        <div class="info-card"><div class="info-icon">📍</div><div><div class="info-label">Location</div><div class="info-val">Udupi, Karnataka, India</div></div></div>
+        <div class="info-card"><div class="info-icon">🎓</div><div><div class="info-label">Currently</div><div class="info-val">Diploma CSE — 3rd Year</div></div></div>
+        <div class="info-card"><div class="info-icon">🔒</div><div><div class="info-label">Focus Area</div><div class="info-val">Cybersecurity &amp; Web Dev</div></div></div>
+        <div class="info-card"><div class="info-icon">✉️</div><div><div class="info-label">Email</div><div class="info-val">tanishshriyan7@gmail.com</div></div></div>
+      </div>
+    </div>
+  </section>
 
-    <div class="cur-dot" id="curDot" aria-hidden="true"></div>
-    <div class="cur-ring" id="curRing" aria-hidden="true"></div>
+  <section id="skills">
+    <div class="reveal">
+      <p class="section-tag">// skills</p>
+      <h2 class="section-title">What I <span>Work With</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-chip">Python</div>
+      <div class="skill-chip">JavaScript</div>
+      <div class="skill-chip">Java</div>
+      <div class="skill-chip">HTML</div>
+      <div class="skill-chip">CSS</div>
+      <div class="skill-chip">Flask</div>
+      <div class="skill-chip">Git</div>
+      <div class="skill-chip">GitHub</div>
+      <div class="skill-chip">Linux</div>
+      <div class="skill-chip">Machine Learning</div>
+      <div class="skill-chip">Prompt Engineering</div>
+      <div class="skill-chip">Generative AI</div>
+    </div>
+  </section>
 
-    <nav class="nav glass-shell" id="nav">
-        <div class="nav-wrap">
-            <a href="#home" class="nav-logo">
-                <span class="mono">[</span>TS<span class="mono">]</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme" aria-pressed="false">
-                <i class="fas fa-sun theme-icon theme-sun" aria-hidden="true"></i>
-                <i class="fas fa-moon theme-icon theme-moon" aria-hidden="true"></i>
-            </button>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span><span></span>
-            </button>
+  <section id="projects">
+    <div class="reveal">
+      <p class="section-tag">// projects</p>
+      <h2 class="section-title">Things I've <span>Built</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-num">01 / PROJECT</div>
+        <div class="project-title">Real-Time Ransomware Detection System</div>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">HTML/CSS/JS</span><span class="tag">Windows</span>
         </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="hero-grid">
-            <div class="hero-left">
-                <div class="hero-badge glass-chip reveal-up">
-                    <span class="badge-pulse"></span>
-                    <span class="mono">Open to internships</span>
-                </div>
-                <h1 class="hero-name reveal-up d1">
-                    <span>Tanish</span>
-                    <span class="stroke-text">Shriyan</span>
-                </h1>
-                <p class="hero-role reveal-up d2">
-                    <span class="mono accent">_</span>
-                    <span id="typingText" class="typing-text"></span>
-                    <span class="cursor-blink">|</span>
-                </p>
-                <p class="hero-desc reveal-up d3">
-                    Computer science student based in Bengaluru, focused on
-                    <strong>cybersecurity</strong>, <strong>machine learning</strong>, and
-                    backend development.
-                </p>
-                <div class="hero-notes reveal-up d4">
-                    <span>Bengaluru, India</span>
-                    <span>Cybersecurity + ML</span>
-                    <span>Python, FastAPI, SQL</span>
-                </div>
-                <div class="hero-cta reveal-up d5">
-                    <a href="#projects" class="btn-primary liquid-btn">
-                        View Work
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </a>
-                    <a href="#contact" class="btn-outline glass-chip">Contact Me</a>
-                </div>
-                <div class="hero-socials reveal-up">
-                    <a href="https://linkedin.com/in/tanishshriyan" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-btn glass-chip"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/tanishshriyan" target="_blank" rel="noopener" aria-label="GitHub" class="social-btn glass-chip"><i class="fab fa-github"></i></a>
-                    <a href="mailto:tanishshriyan1@gmail.com" aria-label="Email" class="social-btn glass-chip"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            <div class="hero-right reveal-scale">
-                <div class="vis-wrap glass-panel liquid-panel">
-                    <div class="vis-ring r1"></div>
-                    <div class="vis-ring r2"></div>
-                    <div class="vis-ring r3"></div>
-                    <div class="vis-core">
-                        <i class="fas fa-shield-halved"></i>
-                    </div>
-                    <div class="vis-orbit oa"><span></span></div>
-                    <div class="vis-orbit ob"><span></span></div>
-                    <div class="vis-badge glass-chip vb1">
-                        <span class="vb-num">Current Focus</span>
-                        <span class="vb-label">Security tools and ML systems</span>
-                    </div>
-                    <div class="vis-badge glass-chip vb2">
-                        <span class="vb-num">Looking For</span>
-                        <span class="vb-label">Internship opportunities</span>
-                    </div>
-                </div>
-            </div>
+        <ul class="project-bullets">
+          <li>Watches file activity and running processes on Windows in real time to spot ransomware before it causes damage.</li>
+          <li>Uses machine learning to classify activity as safe or malicious without relying only on known attack patterns.</li>
+          <li>Asks the user to review uncertain cases to avoid blocking legitimate programs by mistake.</li>
+          <li>Web-based dashboard for live alerts, flagged process review, and one-click actions.</li>
+          <li>Tested against simulated ransomware attacks to verify detection accuracy and response speed.</li>
+        </ul>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">02 / PROJECT</div>
+        <div class="project-title">Phishing URL Detection System</div>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Flask</span><span class="tag">JavaScript</span>
         </div>
-        <div class="scroll-hint">
-            <div class="sh-line"></div>
-            <span class="mono sh-txt">scroll</span>
-        </div>
-    </section>
+        <ul class="project-bullets">
+          <li>Web app that predicts whether a URL is a phishing link or safe, built with Python and Flask.</li>
+          <li>Extracts URL-based features and runs them through a trained ML model to classify each link.</li>
+          <li>Tracks model performance using saved metrics to ensure consistent predictions over time.</li>
+          <li>Clean web dashboard where users paste a URL and get an instant result.</li>
+          <li>Deployed live on Render for public access.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <section id="about" class="about section">
-        <div class="wrap">
-            <div class="sec-tag reveal-up"><span class="mono">01</span> About</div>
-            <div class="about-grid">
-                <div class="about-l reveal-up">
-                    <h2 class="sec-heading">
-                        A simple overview of
-                        <span class="accent">what I work on</span>
-                    </h2>
-                </div>
-                <div class="about-r glass-panel liquid-panel reveal-up d2">
-                    <p class="about-lead">
-                        I am a computer science student with a strong interest in
-                        <strong>cybersecurity</strong> and <strong>machine learning</strong>.
-                    </p>
-                    <p>
-                        My current project is a ransomware detection system built with
-                        LightGBM, and FastAPI. It focuses on process
-                        monitoring and behavior-based detection.
-                    </p>
-                    <p>
-                        I also work on backend development, data handling, and security-focused
-                        applications. I prefer practical work, clear systems, and simple interfaces.
-                    </p>
-                    <div class="about-stats">
-                        <div class="astat glass-chip"><span class="astat-n">CS</span><span class="astat-l">Student</span></div>
-                        <div class="astat glass-chip"><span class="astat-n">1</span><span class="astat-l">Main Project</span></div>
-                        <div class="astat glass-chip"><span class="astat-n">Now</span><span class="astat-l">Open to internships</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="certifications">
+    <div class="reveal">
+      <p class="section-tag">// certifications</p>
+      <h2 class="section-title">What I've <span>Earned</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card reveal"><div class="cert-badge">🛡️</div><div><div class="cert-title">Cyber Security &amp; Applied Ethical Hacking</div><div class="cert-issuer">Infosys Springboard • 2025</div></div></div>
+      <div class="cert-card reveal"><div class="cert-badge">🤖</div><div><div class="cert-title">Introduction to Artificial Intelligence</div><div class="cert-issuer">Simplilearn • 2026</div></div></div>
+      <div class="cert-card reveal"><div class="cert-badge">✨</div><div><div class="cert-title">Introduction to Generative AI</div><div class="cert-issuer">Google Skills • 2026</div></div></div>
+      <div class="cert-card reveal"><div class="cert-badge">⚡</div><div><div class="cert-title">Claude Code in Action</div><div class="cert-issuer">Anthropic • 2026</div></div></div>
+    </div>
+  </section>
 
-    <section id="skills" class="skills section">
-        <div class="wrap">
-            <div class="sec-tag reveal-up"><span class="mono">02</span> Skills</div>
-            <h2 class="sec-heading reveal-up">Tools and <span class="accent">areas I use</span></h2>
-            <div class="skills-grid">
-                <div class="sk-card glass-panel liquid-panel reveal-up d1">
-                    <div class="sk-head">
-                        <div class="sk-icon"><i class="fas fa-lock"></i></div>
-                        <h3>Cybersecurity</h3>
-                    </div>
-                    <p class="sk-copy">
-                        Basics of network security, web security testing, and threat analysis.
-                    </p>
-                    <div class="sk-tags">
-                        <span>Wireshark</span><span>Metasploit</span><span>Nmap</span><span>Burp Suite</span>
-                    </div>
-                </div>
+  <section id="education">
+    <div class="reveal">
+      <p class="section-tag">// education</p>
+      <h2 class="section-title">Where I <span>Studied</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-degree">Diploma in Computer Science Engineering</div>
+        <div class="edu-school">Indira Shiva Rao Polytechnic</div>
+        <div class="edu-year">July 2023 – June 2026</div>
+        <div class="edu-score">CGPA: 9.45 / 10.0</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-degree">High School (SSLC)</div>
+        <div class="edu-school">St. Francis English Medium School, Mudarangadi</div>
+        <div class="edu-year">May 2023</div>
+        <div class="edu-score">Percentage: 87%</div>
+      </div>
+    </div>
+  </section>
 
-                <div class="sk-card glass-panel liquid-panel reveal-up d2">
-                    <div class="sk-head">
-                        <div class="sk-icon"><i class="fas fa-brain"></i></div>
-                        <h3>Machine Learning</h3>
-                    </div>
-                    <p class="sk-copy">
-                        Model training, anomaly detection, and data analysis for practical projects.
-                    </p>
-                    <div class="sk-tags">
-                        <span>LightGBM</span><span>Scikit-learn</span><span>Pandas</span><span>NumPy</span>
-                    </div>
-                </div>
+  <section id="contact">
+    <div class="contact-inner reveal">
+      <p class="section-tag">// contact</p>
+      <h2 class="section-title">Let's <span>Connect</span></h2>
+      <div class="divider" style="margin: 1rem auto;"></div>
+      <p>I'm open to internships, project collaborations, and conversations about cybersecurity or anything I'm building.</p>
+      <div class="contact-links">
+        <a href="mailto:tanishshriyan7@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          tanishshriyan7@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/tanishshriyan" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          linkedin.com/in/tanishshriyan
+        </a>
+        <a href="https://tanishshriyan.vercel.app" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          tanishshriyan.vercel.app
+        </a>
+      </div>
+    </div>
+  </section>
 
-                <div class="sk-card glass-panel liquid-panel reveal-up d3">
-                    <div class="sk-head">
-                        <div class="sk-icon"><i class="fas fa-code"></i></div>
-                        <h3>Development</h3>
-                    </div>
-                    <p class="sk-copy">
-                        Backend-focused development with Python, JavaScript, APIs, and databases.
-                    </p>
-                    <div class="sk-tags">
-                        <span>FastAPI</span><span>HTML/CSS</span><span>Git</span><span>SQL</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer>
+    <span>Built by Tanish Shriyan &nbsp;•&nbsp; 2026</span>
+  </footer>
 
-    <section id="projects" class="projects section">
-        <div class="wrap">
-            <div class="sec-tag reveal-up"><span class="mono">03</span> Projects</div>
-            <h2 class="sec-heading reveal-up">Current <span class="accent">project</span></h2>
-            <div class="proj-feature glass-panel liquid-panel reveal-up d1">
-                <div class="pf-body">
-                    <div class="pf-top">
-                        <span class="mono pf-num">001</span>
-                        <span class="pf-status-badge glass-chip">In Development</span>
-                    </div>
-                    <h3 class="pf-title">
-                        Ransomware Detection<br>System
-                    </h3>
-                    <p class="pf-desc">
-                        A ransomware detection system that monitors running processes and
-                        flags suspicious behavior using LightGBM.
-                        The project includes a FastAPI backend and a web dashboard for
-                        viewing results.
-                    </p>
-                    <div class="pf-tech">
-                        <span>Python</span><span>LightGBM</span><span>FastAPI</span>
-                        <span>Behavioral Analysis</span>
-                    </div>
-                    <div class="pf-links">
-                        <a href="https://github.com/Tanishshriyan/ransomware-detection" target="_blank" rel="noopener" class="btn-primary liquid-btn">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="#" class="btn-outline glass-chip">
-                            <i class="fas fa-arrow-up-right-from-square"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-                <div class="pf-code-panel">
-                    <div class="code-header">
-                        <div class="code-dots"><span></span><span></span><span></span></div>
-                        <span class="mono code-fname">threat_analyzer.py</span>
-                    </div>
-                    <div class="code-body">
-                        <div class="cl"><span class="ck">import</span> lightgbm <span class="ck">as</span> lgb</div>
-                        <div class="cl">&nbsp;</div>
-                        <div class="cl"><span class="cf">def</span> <span class="cn">analyze_behavior</span>(proc):</div>
-                        <div class="cl ci"><span class="cc"># Process behavior features</span></div>
-                        <div class="cl ci">features = extract_features(proc)</div>
-                        <div class="cl ci">anomaly = iso_forest.<span class="cf">predict</span>(features)</div>
-                        <div class="cl ci">score = lgb_model.<span class="cf">predict</span>(features)</div>
-                        <div class="cl ci"><span class="ck">return</span> score &gt; THREAT_THRESHOLD</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact section">
-        <div class="wrap">
-            <div class="sec-tag reveal-up"><span class="mono">04</span> Contact</div>
-            <h2 class="sec-heading reveal-up">Get <span class="accent">in touch</span></h2>
-            <div class="contact-grid">
-                <div class="contact-l reveal-up d1">
-                    <p class="contact-lead">
-                        I am looking for internship opportunities in cybersecurity,
-                        machine learning, or backend development.
-                    </p>
-                    <div class="clinks">
-                        <a href="mailto:tanishshriyan1@gmail.com" class="clink">
-                            <div class="clink-ico"><i class="fas fa-envelope"></i></div>
-                            <div class="clink-info">
-                                <span class="clink-lbl">Email</span>
-                                <span class="clink-val">tanishshriyan1@gmail.com</span>
-                            </div>
-                            <i class="fas fa-arrow-right clink-arr"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/tanishshriyan" target="_blank" rel="noopener" class="clink">
-                            <div class="clink-ico"><i class="fab fa-linkedin-in"></i></div>
-                            <div class="clink-info">
-                                <span class="clink-lbl">LinkedIn</span>
-                                <span class="clink-val">linkedin.com/in/tanishshriyan</span>
-                            </div>
-                            <i class="fas fa-arrow-right clink-arr"></i>
-                        </a>
-                        <a href="https://github.com/tanishshriyan" target="_blank" rel="noopener" class="clink">
-                            <div class="clink-ico"><i class="fab fa-github"></i></div>
-                            <div class="clink-info">
-                                <span class="clink-lbl">GitHub</span>
-                                <span class="clink-val">github.com/tanishshriyan</span>
-                            </div>
-                            <i class="fas fa-arrow-right clink-arr"></i>
-                        </a>
-                        <div class="clink no-hover">
-                            <div class="clink-ico"><i class="fas fa-location-dot"></i></div>
-                            <div class="clink-info">
-                                <span class="clink-lbl">Location</span>
-                                <span class="clink-val">Bengaluru, Karnataka, India</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-r glass-panel liquid-panel reveal-up d2">
-                    <form class="cform" id="contactForm" novalidate>
-                        <div style="position:absolute;left:-9999px;top:-9999px;">
-                            <input type="text" name="website" tabindex="-1" autocomplete="off">
-                        </div>
-                        <div class="cfield">
-                            <input type="text" id="fname" name="user_name" placeholder=" " required>
-                            <label for="fname">Your Name</label>
-                        </div>
-                        <div class="cfield">
-                            <input type="email" id="femail" name="user_email" placeholder=" " required>
-                            <label for="femail">Email Address</label>
-                        </div>
-                        <div class="cfield">
-                            <input type="text" id="fsubj" name="subject" placeholder=" " required>
-                            <label for="fsubj">Subject</label>
-                        </div>
-                        <div class="cfield">
-                            <textarea id="fmsg" name="message" rows="4" placeholder=" " required></textarea>
-                            <label for="fmsg">Message</label>
-                        </div>
-                        <input type="hidden" name="to_email" value="tanishshriyan1@gmail.com">
-                        <button type="submit" class="form-submit liquid-btn" id="submitBtn">
-                            <span class="fs-text">Send Message</span>
-                            <span class="fs-icon"><i class="fas fa-paper-plane"></i></span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="wrap">
-            <div class="footer-inner">
-                <span class="mono footer-copy">&copy; 2026 Tanish Shriyan</span>
-                <div class="footer-socials">
-                    <a href="https://linkedin.com/in/tanishshriyan" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/tanishshriyan" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="mailto:tanishshriyan1@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
