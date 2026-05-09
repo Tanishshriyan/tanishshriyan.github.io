@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /TANISH_SHRIYAN_Resume.pdf
+
+Sitemap: https://tanishshriyan.github.io/sitemap.xml
