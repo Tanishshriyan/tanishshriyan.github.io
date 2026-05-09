@@ -366,6 +366,22 @@ h1 {
   line-height: 1.75;
 }
 
+.project-link {
+  align-self: flex-start;
+  margin-top: 1rem;
+  color: var(--accent-strong);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color var(--transition), transform var(--transition);
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+  color: var(--text);
+  transform: translateX(2px);
+}
+
 .project-tags {
   display: flex;
   flex-wrap: wrap;
