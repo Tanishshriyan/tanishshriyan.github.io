@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="Tanish Shriyan | Cybersecurity &amp; Web Development Portfolio"/>
   <meta name="twitter:description" content="Python cybersecurity, machine learning, Flask, phishing URL detection, ransomware detection, and web development projects by Tanish Shriyan."/>
-  <meta name="theme-color" content="#0f766e"/>
+  <meta name="theme-color" content="#0d5f56"/>
   <link rel="stylesheet" href="styles.css"/>
   <script type="application/ld+json">
   {
@@ -35,6 +35,10 @@
         "alumniOf": {
           "@type": "EducationalOrganization",
           "name": "Indira Shiva Rao Polytechnic"
+        },
+        "affiliation": {
+          "@type": "EducationalOrganization",
+          "name": "NMAM Institute of Technology"
         },
         "knowsAbout": [
           "Cybersecurity",
@@ -86,8 +90,8 @@
           "ransomware detection system",
           "phishing URL detection",
           "web development portfolio",
-          "Computer Science Engineering student"
-          "tanishshriyan"
+          "Computer Science Engineering student",
+          "tanishshriyan",
           "Tanishshriyan"
         ],
         "inLanguage": "en"
@@ -155,8 +159,11 @@
   </script>
 </head>
 <body>
-  <nav class="site-nav" id="navbar">
-    <a href="#hero" class="nav-logo" aria-label="Tanish Shriyan home">Tanish Shriyan</a>
+  <nav class="site-nav" id="navbar" aria-label="Primary navigation">
+    <a href="#hero" class="nav-logo" aria-label="Tanish Shriyan home">
+      <span class="nav-mark">TS</span>
+      <span>Tanish Shriyan</span>
+    </a>
 
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -169,7 +176,7 @@
 
     <a href="Tanish_Resume.pdf" class="nav-cta" download>Resume</a>
 
-    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -189,48 +196,98 @@
   <main>
     <section id="hero" class="hero-section">
       <div class="hero-content reveal">
+        <p class="hero-kicker">Cybersecurity / Machine Learning / Web Interfaces</p>
         <h1>Tanish Shriyan</h1>
         <p class="hero-lede">
-          Computer Science Engineering student building practical cybersecurity tools with
-          Python, machine learning, Flask, and clean web interfaces.
+          B.Tech CSE student building security-focused Python tools, machine learning systems,
+          and sharp web interfaces that turn complex signals into clear decisions.
         </p>
 
         <div class="hero-actions">
           <a href="#projects" class="button button-primary">View Projects</a>
           <a href="Tanish_Resume.pdf" class="button button-secondary" download>Download Resume</a>
         </div>
+
+        <div class="hero-metrics" aria-label="Portfolio highlights">
+          <div>
+            <strong>02</strong>
+            <span>Security projects</span>
+          </div>
+          <div>
+            <strong>15+</strong>
+            <span>Tools and skills</span>
+          </div>
+          <div>
+            <strong>2026</strong>
+            <span>B.Tech CSE track</span>
+          </div>
+        </div>
       </div>
 
       <aside class="hero-panel reveal" aria-label="Profile summary">
-       <img src="certificates/profile.jpeg" alt="Tanish Shriyan" class="hero-avatar" />
+        <div class="portrait-shell">
+          <img src="certificates/profile.jpeg" alt="Tanish Shriyan" class="hero-avatar" fetchpriority="high" decoding="async" />
+        </div>
 
+        <div class="profile-summary">
+          <p class="panel-label">Currently</p>
+          <h2>B.Tech CSE at NMAM Institute of Technology</h2>
+          <p>2026 - Ongoing</p>
+        </div>
+
+        <div class="focus-strip" aria-label="Core focus areas">
+          <span>Python</span>
+          <span>Cybersecurity</span>
+          <span>ML</span>
+          <span>Flask</span>
+        </div>
       </aside>
     </section>
 
     <section id="about" class="section">
       <div class="section-heading reveal">
         <p class="eyebrow">About</p>
-        <h2>Building cybersecurity and web development projects.</h2>
+        <h2>Building practical security tools with clean product thinking.</h2>
       </div>
 
       <div class="about-layout reveal">
-        <p>
-          I am a Computer Science Engineering  student interested in cybersecurity,
-          Python automation, web development, and machine learning. I like building tools that
-          solve a real problem, from detecting suspicious activity to presenting results in a
-          clear interface.
-        </p>
-        <p>
-          My recent portfolio work includes a real-time ransomware detection system for
-          Windows and a phishing URL classifier built with Python, Flask, and a web dashboard.
-        </p>
+        <div class="about-copy">
+          <p>
+            I am a Computer Science Engineering student interested in cybersecurity,
+            Python automation, web development, and machine learning. I like building tools that
+            solve a real problem, from detecting suspicious activity to presenting results in a
+            clear interface.
+          </p>
+          <p>
+            My recent portfolio work includes a real-time ransomware detection system for
+            Windows and a phishing URL classifier built with Python, Flask, and a web dashboard.
+          </p>
+        </div>
+
+        <div class="about-points" aria-label="Focus areas">
+          <article class="about-point">
+            <span>01</span>
+            <h3>Threat Detection</h3>
+            <p>File, process, and URL signals shaped into actionable security decisions.</p>
+          </article>
+          <article class="about-point">
+            <span>02</span>
+            <h3>Machine Learning</h3>
+            <p>Classifiers and feature pipelines for practical cybersecurity workflows.</p>
+          </article>
+          <article class="about-point">
+            <span>03</span>
+            <h3>Web Dashboards</h3>
+            <p>Flask and frontend interfaces that make model results easier to understand.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="skills" class="section section-muted">
       <div class="section-heading reveal">
         <p class="eyebrow">Skills</p>
-        <h2>Tools I work with.</h2>
+        <h2>A focused stack for security, automation, and product interfaces.</h2>
       </div>
 
       <div class="skills-list reveal">
@@ -248,14 +305,14 @@
         <span>Atlassian</span>
         <span>Figma</span>
         <span>VMware</span>
-        <span>Mysql</span>
+        <span>MySQL</span>
       </div>
     </section>
 
     <section id="projects" class="section">
       <div class="section-heading reveal">
         <p class="eyebrow">Projects</p>
-        <h2>Selected work.</h2>
+        <h2>Selected work with a cybersecurity edge.</h2>
       </div>
 
       <div class="project-grid">
@@ -287,7 +344,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            Live Project
+            Live Project &#8594;
           </a>
           <div class="project-tags">
             <span>Python</span>
@@ -299,27 +356,27 @@
       </div>
     </section>
 
-    <section id="certificates" class="section">
+    <section id="certificates" class="section section-contrast">
       <div class="section-heading reveal">
         <p class="eyebrow">Certificates</p>
-        <h2>Courses &amp; certifications.</h2>
+        <h2>Courses and certifications.</h2>
       </div>
 
       <div class="cert-slider reveal">
-        <button class="cert-arrow cert-arrow-left" id="certPrev" aria-label="Previous certificate">&#8592;</button>
+        <button class="cert-arrow cert-arrow-left" id="certPrev" type="button" aria-label="Previous certificate">&#8592;</button>
 
         <div class="cert-stage" id="certStage">
           <div class="cert-track" id="certTrack">
-            <div class="cert-card"><img src="certificates/cert1.jpeg" alt="Certificate 1" /></div>
-            <div class="cert-card"><img src="certificates/cert2.jpeg" alt="Certificate 2" /></div>
-            <div class="cert-card"><img src="certificates/cert3.jpeg" alt="Certificate 3" /></div>
-            <div class="cert-card"><img src="certificates/cert4.jpg" alt="Certificate 4" /></div>
-            <div class="cert-card"><img src="certificates/cert5.jpeg" alt="Certificate 5" /></div>
-            <div class="cert-card"><img src="certificates/cert6.jpg" alt="Certificate 5" /></div>
+            <div class="cert-card"><img src="certificates/cert1.jpeg" alt="Certificate 1" loading="lazy" decoding="async" /></div>
+            <div class="cert-card"><img src="certificates/cert2.jpeg" alt="Certificate 2" loading="lazy" decoding="async" /></div>
+            <div class="cert-card"><img src="certificates/cert3.jpeg" alt="Certificate 3" loading="lazy" decoding="async" /></div>
+            <div class="cert-card"><img src="certificates/cert4.jpg" alt="Certificate 4" loading="lazy" decoding="async" /></div>
+            <div class="cert-card"><img src="certificates/cert5.jpeg" alt="Certificate 5" loading="lazy" decoding="async" /></div>
+            <div class="cert-card"><img src="certificates/cert6.jpg" alt="Certificate 6" loading="lazy" decoding="async" /></div>
           </div>
         </div>
 
-        <button class="cert-arrow cert-arrow-right" id="certNext" aria-label="Next certificate">&#8594;</button>
+        <button class="cert-arrow cert-arrow-right" id="certNext" type="button" aria-label="Next certificate">&#8594;</button>
       </div>
 
       <div class="cert-dots" id="certDots"></div>
@@ -328,10 +385,15 @@
     <section id="education" class="section section-muted">
       <div class="section-heading reveal">
         <p class="eyebrow">Education</p>
-        <h2>Background.</h2>
+        <h2>Academic background.</h2>
       </div>
 
       <div class="education-list reveal">
+        <div>
+          <h3>B.Tech in Computer Science Engineering</h3>
+          <p>NMAM Institute of Technology</p>
+          <span>2026 - Ongoing</span>
+        </div>
         <div>
           <h3>Diploma in Computer Science Engineering</h3>
           <p>Indira Shiva Rao Polytechnic</p>
